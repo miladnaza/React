@@ -798,3 +798,299 @@ body, html {
 .footer-bottom a:hover {
   color: #000; /* Change color on hover */
 }
+/* General Mobile Styling */
+@media (max-width: 768px) {
+  body, html {
+    font-size: 12px; /* Adjust font size for smaller screens */
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Black Section */
+  #black {
+    background-color: #2c2d2b;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+  }
+
+  #add {
+    color: white;
+    text-align: center;
+    font-size: 10px;
+    font-weight: bold;
+    flex-grow: 1;
+    font-family: "Futura Indigo Web", sans-serif;
+  }
+
+  .arrow {
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .arrow:hover {
+    transform: scale(1.1);
+  }
+
+  /* Gray Navigation Bar */
+  #gray {
+    background-color: rgb(245, 246, 246);
+    padding: 10px 5px;
+    flex-wrap: wrap;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .nav-link {
+    font-size: 12px;
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .separator {
+    display: none; /* Hide separator for mobile */
+  }
+
+  /* Header Section */
+  #hea {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .img {
+    height: 80px;
+    width: auto;
+  }
+
+  .search-container {
+    width: 100%;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  .search-box {
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .search-icon {
+    position: absolute;
+    left: 15px;
+    top: 10px;
+    height: 20px;
+    pointer-events: none;
+  }
+
+  /* Header Icons */
+  .header-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+
+  #location {
+    height: 24px;
+  }
+
+  /* Book Container */
+  #book-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px;
+  }
+
+  .book-card {
+    width: 95%;
+    margin: 0 auto;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .book-image {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+  }
+
+  .book-title {
+    font-size: 12px;
+    font-weight: bold;
+    color: #333;
+    margin: 10px 0 5px;
+  }
+
+  .book-author {
+    font-size: 11px;
+    color: #555;
+    margin-bottom: 10px;
+  }
+
+  /* Navigation Filters */
+  #N {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    padding: 10px 15px;
+  }
+
+  .filter-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    text-align: left;
+  }
+
+  .filter-option {
+    font-size: 12px;
+    cursor: pointer;
+  }
+
+  .filter-option:hover {
+    text-decoration: underline;
+  }
+
+  /* Pagination */
+  .pagination-controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 0;
+  }
+
+  .pagination-button {
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .pagination-button.active {
+    background-color: #2c2d2b;
+    color: white;
+  }
+
+  .pagination-button:hover {
+    background-color: #f0f0f0;
+  }
+
+  .pagination-page-info {
+    font-size: 12px;
+    color: #555;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  /* Footer Section */
+  .footer-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .footer-column a {
+    font-size: 12px;
+    text-decoration: none;
+    color: black;
+  }
+
+  .footer-subscribe {
+    width: 100%;
+    text-align: center;
+  }
+
+  .subscribe-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .subscribe-form input {
+    width: 100%;
+    padding: 10px;
+    font-size: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .subscribe-form button {
+    padding: 10px;
+    font-size: 12px;
+    background-color: #2c2d2b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .subscribe-form button:hover {
+    background-color: #333;
+  }
+
+  .footer-socials {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .footer-bottom {
+    text-align: center;
+    font-size: 11px;
+    color: #666;
+    padding-top: 10px;
+  }
+
+  .footer-bottom a {
+    text-decoration: none;
+    color: #333;
+  }
+
+  .footer-bottom a:hover {
+    color: #000;
+  }
+}
