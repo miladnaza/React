@@ -90,7 +90,7 @@ const Header = ({ onSearch }) => {
         <nav className="nav-links">
           <Link to="/" className="nav-link">Home</Link>
           <div className="separator"></div>
-          <Link to="/try" className="nav-link">Order Status</Link>
+          <Link to="/Bookslist" className="nav-link">Order Status</Link>
           <div className="separator"></div>
           <Link to="/AccountCenter" className="nav-link">Dashboard</Link>
           <div className="separator"></div>
