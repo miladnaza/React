@@ -88,11 +88,11 @@ const Header = ({ onSearch }) => {
 
       <div id="gray">
         <nav className="nav-links">
-          <Link to="/try" className="nav-link">Home</Link>
+          <Link to="/" className="nav-link">Home</Link>
           <div className="separator"></div>
           <Link to="/try" className="nav-link">Order Status</Link>
           <div className="separator"></div>
-          <Link to="/try" className="nav-link">Dashboard</Link>
+          <Link to="/AccountCenter" className="nav-link">Dashboard</Link>
           <div className="separator"></div>
           <Link to="/try" className="nav-link sign-in-button">Sign In</Link>
         </nav>
@@ -130,7 +130,7 @@ const Header = ({ onSearch }) => {
             </Link>
           </div>
           <div className="icon-container">
-            <Link to="/try">
+            <Link to="/AccountCenter">
               <img src={accountIcon} alt="Account Icon" className="icon" />
               <div className="tooltip">Account</div>
             </Link>
