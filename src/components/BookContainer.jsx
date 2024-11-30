@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom"; // Import Link for navigation
 
 const BookContainer = ({ books, loading, error }) => {
   const [currentPage, setCurrentPage] = useState(1); // Track current page
@@ -31,7 +32,11 @@ const BookContainer = ({ books, loading, error }) => {
         {!loading &&
           !error &&
           currentBooks.map((book, index) => (
-            <div key={index} className="book-card">
+            <Link
+              key={index}
+              to={`/book-details/${book.shortTitle}`} // Link to the details page
+              className="book-card"
+            >
               <img
                 src={book.image || "https://via.placeholder.com/200x300?text=Book+Cover"}
                 alt={book.shortTitle}
@@ -40,7 +45,7 @@ const BookContainer = ({ books, loading, error }) => {
               <h3 className="book-title">{book.shortTitle}</h3>
               <p className="book-author">{book.author}</p>
               {!book.category && <p className="book-price">${book.price}</p>}
-            </div>
+            </Link>
           ))}
       </div>
       {/* Pagination Controls */}
