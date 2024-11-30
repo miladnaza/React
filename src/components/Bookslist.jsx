@@ -18,7 +18,7 @@ const Booklist = () => {
     const loadBooks = async () => {
       try {
         console.log(process.env.REACT_APP_API_URL);
-        const response = await fetch(`${process.env.REACT_APP_API_URL}/Books`); // Your API endpoint
+        const response = await fetch(`${import.meta.env.VITE_BE_URL}/api/Books`); // Your API endpoint
         //console.log(response);
         const booksData = await response.json();
         // Set books in the state
