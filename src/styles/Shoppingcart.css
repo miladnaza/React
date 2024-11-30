@@ -1,0 +1,137 @@
+body {
+  font-family: math;
+  background-color: #f9f9f9;
+}
+
+.shopping-cart-page {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  width: 80%;
+  margin: auto;
+}
+
+.cart-details {
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  width: 45%;
+}
+
+ .order-summary {
+  background: #f1f1f1;
+  padding: 20px;
+  border-radius: 5px;
+  width: 45%;
+}
+/* Style the horizontal line */
+.horizontal-line {
+  border: none;            /* Remove default border */
+  border-top: 2px solid #ccc; /* Set the line's color and thickness */
+  margin-top: auto;        /* Add space above and below the line */
+}
+
+table {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+
+.scrollable-list {
+  display: block;
+  max-height: 300px;  /* Adjust based on the desired height */
+  overflow-y: auto;   /* Vertical scroll when content exceeds max height */
+  width: 100%;        /* Ensure the table takes the full width */
+}
+
+th, td {
+  text-align: left;
+  padding: 10px;
+}
+
+.book-title p {
+  margin: 5px 0;
+  font-size: 12px;
+  color: #888;
+}
+
+button {
+  margin: 5px;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  background-color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #eee;
+}
+
+.order-summary input {
+  padding: 5px;
+  width: 80%;
+  margin: 10px 0;
+}
+
+.checkout-button {
+  background-color: purple;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.cart-header {
+  display: flex;          /* Align items horizontally */
+  align-items: center;    /* Center vertically */
+  gap: 10px;              /* Space between text and logo */
+}
+
+.cart-header h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.logo-fade {
+  width: 200px;            /* Adjust size */
+  height: auto;
+  margin-left: -11px; 
+  opacity: 0.8;           /* Initial transparency (0 = fully transparent, 1 = fully opaque) */
+  transition: opacity 0.3s ease-in-out, filter 0.3s ease-in-out;
+  filter: grayscale(50%); /* Optional: Add a grayscale effect for a more subtle fade */
+}
+
+.shopping-link{
+
+  color:purple;
+
+}
+
+.book-items{
+
+font-size: large;
+margin-left: 64px;
+
+
+}
+
+.dropdown-container {
+  position: relative;
+  display: inline-block;
+  margin-top: 20px;
+}
+.cartsummary-dropdown-select{
+
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    cursor: pointer;
+    width: 250px; /* Adjust width as needed */
+  }
+
+  

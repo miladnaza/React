@@ -136,7 +136,7 @@ const Header = ({ onSearch }) => {
             </Link>
           </div>
           <div className="icon-container">
-            <Link to="/try">
+            <Link to="/Bookslist">
               <img src={cartIcon} alt="Cart Icon" className="icon" />
               <div className="tooltip">View Cart</div>
             </Link>
