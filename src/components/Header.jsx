@@ -92,7 +92,7 @@ const Header = ({ onSearch }) => {
           <div className="separator"></div>
           <Link to="/Bookslist" className="nav-link">Order Status</Link>
           <div className="separator"></div>
-          <Link to="/AccountCenter" className="nav-link">Dashboard</Link>
+          <Link to="/account" className="nav-link">Dashboard</Link>
           <div className="separator"></div>
           <Link to="/try" className="nav-link sign-in-button">Sign In</Link>
         </nav>
@@ -130,7 +130,7 @@ const Header = ({ onSearch }) => {
             </Link>
           </div>
           <div className="icon-container">
-            <Link to="/AccountCenter">
+            <Link to="/account">
               <img src={accountIcon} alt="Account Icon" className="icon" />
               <div className="tooltip">Account</div>
             </Link>
