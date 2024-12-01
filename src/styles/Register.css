@@ -1,0 +1,68 @@
+.register-container {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 600px;
+  height: 650px; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.register-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  color: #505050;
+  text-align: center;
+}
+
+.register-input {
+  width: 50%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.register-input:focus {
+  border-color: #28a745;
+  outline: none;
+  box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
+}
+
+.register-button {
+  width: 50%;
+  padding: 0.8rem;
+  background-color: #0056b3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 0 auto;
+  margin-bottom: 1.5rem;
+}
+
+.register-button:hover {
+  background-color: #0056b3;
+}
+
+.login-link-text {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.login-link-text a {
+  color: #800080;
+  text-decoration: none;
+}
+
+.login-link-text a:hover {
+  text-decoration: underline;
+}
