@@ -94,7 +94,7 @@ const Header = ({ onSearch }) => {
           <div className="separator"></div>
           <Link to="/account" className="nav-link">Dashboard</Link>
           <div className="separator"></div>
-          <Link to="/try" className="nav-link sign-in-button">Sign In</Link>
+          <Link to="/register" className="nav-link sign-in-button">Sign In</Link>
         </nav>
       </div>
 

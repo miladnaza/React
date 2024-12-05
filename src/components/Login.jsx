@@ -34,7 +34,7 @@ const Login = () => {
       if (data.message === "Login successful!") {
         console.log("Login successful.");
         setErrorMessage("");
-        navigate("/dashboard"); 
+        navigate("/"); 
       } else {
         setErrorMessage(data.message);
       }
