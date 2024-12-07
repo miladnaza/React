@@ -9,7 +9,7 @@ This repository contains the React-based frontend for the Book E-commerce Websit
 
 ## Tech Stack
 - **Frontend Framework**: React.js
-- **Styling**: CSS Modules / TailwindCSS / Material-UI
+- **Styling**: CSS Modules
 
 ## Prerequisites
 - Node.js and npm installed.
