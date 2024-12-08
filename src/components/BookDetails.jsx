@@ -8,7 +8,7 @@ import OverView from "./OverView";
 import zoompic from "./image/search.png";
 import Recommendations from "./Recommendations";
 import BookReviews from "./BookReviews";
-import "../styles/BookDetails.css";
+import "../styles/Bookdetails.css";
 import RatingsAndReviews from "./RatingsAndReviews";
 
 const BookDetails = () => {
