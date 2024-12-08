@@ -1,6 +1,5 @@
 import React from "react";
-import CartItem from "./CartItem";
-import "../styles/ShoppingCart.css";
+import CartItem from "./CartItem"
 
 //import logo from "../assets/BS.jpg";
 function ShoppingCart({ cartItems, totalItems, onQuantityChange, onRemove }) {
