@@ -1,18 +1,15 @@
 // Import necessary libraries
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import checkedIcon from "C:/Users/HP/Desktop/Project/React/src/components/image/checked.png";
-import moreIcon from "C:/Users/HP/Desktop/Project/React/src/components/image/more.png";
-import wishlistIcon from "C:/Users/HP/Desktop/Project/React/src/components/image/wishlist.png";
-import priceIcon from "C:/Users/HP/Desktop/Project/React/src/components/image/price.png";
+import checkedIcon from "./image/checked.png";
+import moreIcon from "./image/more.png";
+import priceIcon from "./image/price.png";
 import OverView from "./OverView";
-import zoompic from "C:/Users/HP/Desktop/Project/React/src/components/image/search.png";
+import zoompic from "./image/search.png";
 import Recommendations from "./Recommendations";
 import BookReviews from "./BookReviews";
-import ReviewForm from "./ReviewForm";
 import "../styles/BookDetails.css";
 import RatingsAndReviews from "./RatingsAndReviews";
-import { Link } from "react-router-dom";
 
 const BookDetails = () => {
   const { shortTitle } = useParams();
