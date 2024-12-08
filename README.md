@@ -1,8 +1,22 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Book E-commerce Website - Frontend
+This repository contains the React-based frontend for the Book E-commerce Website. It provides a dynamic and responsive user interface for book browsing, shopping, and account management.
+## Features
+- Browse books by category or search by title/author.
+- View book details and user reviews.
+- Manage shopping cart and checkout.
+- User account management (registration, login, order history).
 
-Currently, two official plugins are available:
+## Tech Stack
+- **Frontend Framework**: React.js
+- **Styling**: CSS Modules
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Prerequisites
+- Node.js and npm installed.
+
+## Contributors
+  - Niloofar Koochakian Jazi
+  - Ansh Satish Acharya
+  - Milad Nazari
+  - Utsav Ketanbhai Mistry
+  - Yeoul Kang
