@@ -653,13 +653,13 @@ body, html {
   font-size: 14px;
   color: #555;
 }
-.footer {
+#unique-footer {
   background-color: rgb(245, 246, 246);
   padding: 20px 40px;
   font-family: Arial, sans-serif;
 }
 
-.footer-container {
+.unique-footer-container {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -667,67 +667,66 @@ body, html {
   gap: 30px;
 }
 
-.footer-links {
+.unique-footer-links {
   display: flex;
   flex: 1;
   gap: 30px;
 }
 
-.footer-column h4 {
+.unique-footer-column h4 {
   margin-bottom: 10px;
-  font-size: 1.3em; /* Slightly larger heading */
-  font-weight: bold; /* Bold for emphasis */
-  color: #333; /* Darker color for headings */
+  font-size: 1.3em;
+  font-weight: bold;
+  color: #333;
 }
 
-.footer-column ul {
+.unique-footer-column ul {
   list-style: none;
   padding: 0;
 }
 
-.footer-column li {
+.unique-footer-column li {
   margin-bottom: 8px;
 }
 
-.footer-column a {
-  text-decoration: none; /* No underline for links */
-  font-size: 1em; /* Match font size */
+.unique-footer-column a {
+  text-decoration: none;
+  font-size: 1em;
   font-weight: 500;
-   /* Medium weight for readability */
-  color: #000; /* Black color for links */
+  color: #000;
   transition: color 0.3s ease;
 }
 
-.footer-column a:hover {
-  text-decoration: underline; /* Change to blue on hover */
+.unique-footer-column a:hover {
+  text-decoration: underline;
 }
 
-.footer-subscribe {
+.unique-footer-subscribe {
   flex: 1;
   max-width: 550px;
   max-height: 550px;
   margin-right: 50px;
 }
 
-.footer-subscribe h4 {
-  font-size: 2em; /* Emphasized subscribe heading */
+.unique-footer-subscribe h4 {
+  font-size: 1.9em;
   margin-bottom: 10px;
   color: #333;
 }
 
-.footer-subscribe p {
-  margin-bottom: 18px;
+.unique-footer-subscribe p {
+  margin-bottom: 16px;
   color: #666;
   font-size: 1.2em;
 }
 
-.subscribe-form {
+.unique-subscribe-form {
   display: flex;
-  gap: 10px;
+  gap: 0px;
   margin-bottom: 10px;
 }
 
-.subscribe-form input {
+.unique-subscribe-form input {
   flex: 1;
   padding: 10px 14px;
   font-size: 1em;
@@ -737,11 +736,11 @@ body, html {
   transition: border-color 0.3s;
 }
 
-.subscribe-form input:focus {
+.unique-subscribe-form input:focus {
   border-color: #000;
 }
 
-.subscribe-form button {
+.unique-subscribe-form button {
   padding: 10px 20px;
   font-size: 1em;
   background-color: #000;
@@ -752,171 +751,194 @@ body, html {
   transition: background-color 0.3s;
 }
 
-.subscribe-form button:hover {
-  background-color: #333;
+.unique-subscribe-form button:hover {
+  background-color: #494949;
 }
 
-.footer-socials {
+.unique-footer-socials {
   display: flex;
-  gap: 15px; /* Space between social media icons */
+  gap: 15px;
   margin-top: 15px;
 }
 
-.footer-socials a {
+.unique-footer-socials a {
   display: inline-block;
   text-decoration: none;
 }
 
-.social-logo {
-  width: 23px; /* Icon size */
+.unique-social-logo {
+  width: 23px;
   height: 23px;
   transition: transform 0.3s ease;
 }
 
-.social-logo:hover {
-  transform: scale(1.1); /* Slight zoom effect on hover */
+.unique-social-logo:hover {
+  transform: scale(1.1);
 }
 
-.footer-bottom {
+.unique-footer-bottom {
   margin-top: 20px;
   text-align: center;
   font-size: 0.9em;
   color: #666;
 }
 
-.footer-bottom a {
+.unique-footer-bottom a {
   margin-left: 10px;
-  text-decoration: none; /* No underline */
+  text-decoration: none;
   color: #666;
 }
 
-.footer-bottom a:hover {
+.unique-footer-bottom a:hover {
   color: #000;
 }
-.footer-bottom {
-  display: flex; /* Use flexbox for alignment */
-  justify-content: flex-start; /* Align content to the left */
-  align-items: center; /* Vertically center the text */
-  gap: 15px; /* Space between items */
+
+.unique-footer-bottom {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 15px;
   margin-top: 20px;
-  font-size: 0.9em; /* Adjust font size */
+  font-size: 0.9em;
   color: #666;
 }
 
-.footer-bottom a {
-  text-decoration: none; /* No underline */
+.unique-footer-bottom a {
+  text-decoration: none;
   color: #666;
 }
 
-.footer-bottom a:hover {
-  color: #000; /* Change color on hover */
+.unique-footer-bottom a:hover {
+  color: #000;
 }
-/* Footer Mobile Styling */
+
 @media (max-width: 768px) {
-  /* Footer Container */
-  .footer-container {
+  .unique-footer-container {
     display: flex;
-    flex-direction: column; /* Stack footer sections */
+    flex-direction: column;
     gap: 20px;
-    padding: 20px; /* Add padding for spacing */
-    text-align: center; /* Center-align content */
+    padding: 20px;
+    text-align: center;
   }
 
-  /* Footer Links */
-  .footer-links {
-    flex-direction: column; /* Stack links */
+  .unique-footer-links {
+    flex-direction: column;
     gap: 15px;
     align-items: center;
   }
 
-  .footer-column {
-    margin-bottom: 15px; /* Add spacing between sections */
+  .unique-footer-column {
+    margin-bottom: 15px;
   }
 
-  .footer-column h4 {
-    font-size: 14px; /* Adjust heading size */
-    color: #333; /* Keep the same color scheme */
+  .unique-footer-column h4 {
+    font-size: 14px;
+    color: #333;
     font-weight: bold;
     margin-bottom: 10px;
   }
 
-  .footer-column a {
-    font-size: 12px; /* Adjust link font size */
+  .unique-footer-column a {
+    font-size: 12px;
     text-decoration: none;
-    color: black; /* Match your color scheme */
+    color: black;
   }
 
-  .footer-column a:hover {
+  .unique-footer-column a:hover {
     text-decoration: underline;
   }
 
-  /* Subscription Section */
-  .footer-subscribe {
-    width: 100%; /* Full width for subscription form */
+  .unique-footer-subscribe {
+    width: 100%;
     text-align: center;
   }
 
-  .subscribe-form {
+  .unique-subscribe-form {
     display: flex;
-    flex-direction: column; /* Stack input and button */
+    flex-direction: column;
     gap: 10px;
   }
 
-  .subscribe-form input {
-    width: 100%; /* Full width input */
+  .unique-subscribe-form input {
+    width: 100%;
     padding: 10px;
-    font-size: 12px; /* Adjust font size */
+    font-size: 12px;
     border: 1px solid #ccc;
     border-radius: 5px;
   }
 
-  .subscribe-form button {
+  .unique-subscribe-form button {
     padding: 10px;
     font-size: 12px;
-    background-color: #2c2d2b; /* Match your button color */
+    background-color: #2c2d2b;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
   }
 
-  .subscribe-form button:hover {
-    background-color: #333; /* Slightly darker on hover */
+  .unique-subscribe-form button:hover {
+    background-color: #333;
   }
 
-  /* Social Media Icons */
-  .footer-socials {
+  .unique-footer-socials {
     display: flex;
-    justify-content: center; /* Center-align icons */
-    gap: 15px; /* Space between icons */
+    justify-content: center;
+    gap: 15px;
   }
 
-  .social-logo {
-    width: 20px; /* Smaller icon size */
+  .unique-social-logo {
+    width: 20px;
     height: 20px;
-    transition: transform 0.3s ease; /* Smooth hover effect */
+    transition: transform 0.3s ease;
   }
 
-  .social-logo:hover {
-    transform: scale(1.1); /* Slightly enlarge on hover */
+  .unique-social-logo:hover {
+    transform: scale(1.1);
   }
 
-  /* Footer Bottom */
-  .footer-bottom {
+  .unique-footer-bottom {
     display: flex;
-    flex-direction: column; /* Stack footer-bottom items */
+    flex-direction: column;
     gap: 10px;
-    text-align: center; /* Center-align text */
-    font-size: 11px; /* Adjust font size */
-    color: #666; /* Match the existing color */
+    text-align: center;
+    font-size: 11px;
+    color: #666;
   }
 
-  .footer-bottom a {
+  .unique-footer-bottom a {
     text-decoration: none;
     color: #333;
   }
 
-  .footer-bottom a:hover {
-    color: #000; /* Slightly darker on hover */
+  .unique-footer-bottom a:hover {
+    color: #000;
   }
+}
+.unique-subscribe-form {
+  display: flex;
+  flex-direction: row; /* Align input and button in a row */
+  gap: 5px; /* Add spacing between the input and button */
+  align-items: center; /* Vertically align the input and button */
+}
+
+.unique-subscribe-form input {
+  flex: 1; /* Allow input box to take remaining space */
+  padding: 10px 14px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.unique-subscribe-form button {
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
 }

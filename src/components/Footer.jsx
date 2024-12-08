@@ -16,113 +16,114 @@ const Footer = () => {
   };
 
   return (
-    <footer className="footer">
-      <div className="footer-container">
-        {/* Help Section */}
-        <div className="footer-links">
-          <div className="footer-column">
-            <h4>Help</h4>
-            <ul>
-              <li>
-                <a href="https://wa.me/12896007457" target="_blank" rel="noopener noreferrer">
-                  Contact Us
-                </a>
-              </li>
-              <li>
-                <a href="location.html">Find a Store</a>
-              </li>
-              <li>
-                <a href="/try">About Us</a>
-              </li>
-              <li>
-                <a href="https://wa.me/12896007457" target="_blank" rel="noopener noreferrer">
-                  Careers
-                </a>
-              </li>
-              <li>
-                <a href="https://wa.me/12896007457" target="_blank" rel="noopener noreferrer">
-                  Give Us Feedback
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        {/* Email Subscription Section */}
-        <div className="footer-subscribe">
-          <h4>Join our email list</h4>
-          <p>Get exclusive offers, the best in books, and more. You may <br></br> unsubscribe at any time.</p>
-          <form onSubmit={handleSubscribe} className="subscribe-form">
-            <input
-              type="email"
-              placeholder="Email address"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-            <button type="submit">Subscribe</button>
-          </form>
-          <div className="footer-socials">
-            <a
-              href="https://www.instagram.com/milad.nazari42023?igsh=MTY2Mmx2d3h4dnU0eA%3D%3D&utm_source=qr"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram"
-            >
-              <img src={instagramLogo} alt="Instagram" className="social-logo" />
+    <footer id="unique-footer" className="unique-footer">
+  <div className="unique-footer-container">
+    {/* Help Section */}
+    <div className="unique-footer-links">
+      <div className="unique-footer-column">
+        <h4>Help</h4>
+        <ul>
+          <li>
+            <a href="https://wa.me/12896007457" target="_blank" rel="noopener noreferrer">
+              Contact Us
             </a>
-            <a
-              href="https://www.facebook.com/share/19aGmUkJye/?mibextid=LQQJ4d"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Facebook"
-            >
-              <img src={facebookLogo} alt="Facebook" className="social-logo" />
+          </li>
+          <li>
+            <a href="location.html">Find a Store</a>
+          </li>
+          <li>
+            <a href="/try">About Us</a>
+          </li>
+          <li>
+            <a href="https://wa.me/12896007457" target="_blank" rel="noopener noreferrer">
+              Careers
             </a>
-            <a
-              href="https://pin.it/5QBoPw3VN"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Pinterest"
-            >
-              <img src={pinterestLogo} alt="Pinterest" className="social-logo" />
+          </li>
+          <li>
+            <a href="https://wa.me/12896007457" target="_blank" rel="noopener noreferrer">
+              Give Us Feedback
             </a>
-            <a
-              href="https://x.com/Challenger77701"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Twitter"
-            >
-              <img src={twitterLogo} alt="Twitter" className="social-logo" />
-            </a>
-            <a
-              href="https://www.youtube.com/@kinechallenger2205"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="YouTube"
-            >
-              <img src={youtubeLogo} alt="YouTube" className="social-logo" />
-            </a>
-            <a
-              href="https://www.tiktok.com/@kinechallenger"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="TikTok"
-            >
-              <img src={tiktokLogo} alt="TikTok" className="social-logo" />
-            </a>
-          </div>
-        </div>
+          </li>
+        </ul>
       </div>
+    </div>
 
-      {/* Footer Bottom */}
-      <div className="footer-bottom">
-        <p>© 2024 Your Bookstore. All rights reserved.  |     </p>
-        <div>
-          <a href="#">Privacy Policy     </a>  |  <a href="#">Terms of Use</a>
-        </div>
+    {/* Email Subscription Section */}
+    <div className="unique-footer-subscribe">
+      <h4>Join our email list</h4>
+      <p>Get exclusive offers, the best in books, and more. You may <br /> unsubscribe at any time.</p>
+      <form onSubmit={handleSubscribe} className="unique-subscribe-form">
+        <input
+          type="email"
+          placeholder="Email address"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+        <button type="submit">Subscribe</button>
+      </form>
+      <div className="unique-footer-socials">
+        <a
+          href="https://www.instagram.com/milad.nazari42023?igsh=MTY2Mmx2d3h4dnU0eA%3D%3D&utm_source=qr"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+        >
+          <img src={instagramLogo} alt="Instagram" className="unique-social-logo" />
+        </a>
+        <a
+          href="https://www.facebook.com/share/19aGmUkJye/?mibextid=LQQJ4d"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Facebook"
+        >
+          <img src={facebookLogo} alt="Facebook" className="unique-social-logo" />
+        </a>
+        <a
+          href="https://pin.it/5QBoPw3VN"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Pinterest"
+        >
+          <img src={pinterestLogo} alt="Pinterest" className="unique-social-logo" />
+        </a>
+        <a
+          href="https://x.com/Challenger77701"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Twitter"
+        >
+          <img src={twitterLogo} alt="Twitter" className="unique-social-logo" />
+        </a>
+        <a
+          href="https://www.youtube.com/@kinechallenger2205"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="YouTube"
+        >
+          <img src={youtubeLogo} alt="YouTube" className="unique-social-logo" />
+        </a>
+        <a
+          href="https://www.tiktok.com/@kinechallenger"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="TikTok"
+        >
+          <img src={tiktokLogo} alt="TikTok" className="unique-social-logo" />
+        </a>
       </div>
-    </footer>
+    </div>
+  </div>
+
+  {/* Footer Bottom */}
+  <div className="unique-footer-bottom">
+    <p>© 2024 Your Bookstore. All rights reserved. | </p>
+    <div>
+      <a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a>
+    </div>
+  </div>
+</footer>
+
   );
 };
 
