@@ -942,3 +942,78 @@ body, html {
   border-radius: 4px;
   transition: background-color 0.3s;
 }
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-content {
+  background: white;
+  width: 300px;
+  height: 100%;
+  padding: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  box-shadow: -4px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.close-button {
+  position: absolute;
+  top: 30px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #000;
+}
+
+.popup-title {
+  margin-top: 70px;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.popup-signin-button,
+.popup-create-account-button {
+  background-color: #000;
+  color: white;
+  border: none;
+  padding: 12px;
+  margin-bottom: px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 4px;
+}
+
+.popup-create-account-button {
+  background: none;
+  color: black;
+  border: 2px solid black;
+}
+
+.popup-create-account-button:hover,
+.popup-signin-button:hover {
+  opacity: 0.8;
+}
+
+.popup-titl{
+  margin-top: 60px;
+  margin-bottom: -2px;
+}
+#wishpic{
+  width: 27px;
+  height: 27px;
+}

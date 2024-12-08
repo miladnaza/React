@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "./image/logo.png";
 import searchIcon from "./image/search.png";
 import locationIcon from "./image/location.png";
@@ -8,9 +8,15 @@ import accountIcon from "./image/account.png";
 import cartIcon from "./image/cart2.png";
 
 const Header = ({ onSearch }) => {
-  const [query, setQuery] = useState(""); // State for managing the search query
-  const [ads, setAds] = useState([]); // State to store ads
-  const [currentAdIndex, setCurrentAdIndex] = useState(0); // State to track current ad
+  const [query, setQuery] = useState("");
+  const [ads, setAds] = useState([]);
+  const [currentAdIndex, setCurrentAdIndex] = useState(0);
+  const [isLoggedIn, setIsLoggedIn] = useState(
+    sessionStorage.getItem("userLoggedIn") === "true"
+  );
+  const [showLoginPopup, setShowLoginPopup] = useState(false);
+  const [showLogoutPopup, setShowLogoutPopup] = useState(false); // State for logout popup
+  const navigate = useNavigate();
 
   // Fetch ads when the component mounts
   useEffect(() => {
@@ -33,55 +39,68 @@ const Header = ({ onSearch }) => {
   // Auto-cycle ads every 10 seconds
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentAdIndex((prevIndex) => (prevIndex + 1) % ads.length); // Cycle through ads
-    }, 10000); // 10 seconds for ad cycle
+      setCurrentAdIndex((prevIndex) => (prevIndex + 1) % ads.length);
+    }, 10000);
 
-    return () => clearInterval(interval); // Cleanup interval on unmount
+    return () => clearInterval(interval);
   }, [ads]);
 
-  // Handle previous ad
-  const handlePrevious = () => {
-    setCurrentAdIndex((prevIndex) =>
-      prevIndex === 0 ? ads.length - 1 : prevIndex - 1 // Go to previous ad, wrap around to the last one if needed
-    );
-  };
-
-  // Handle next ad
-  const handleNext = () => {
-    setCurrentAdIndex((prevIndex) => (prevIndex + 1) % ads.length); // Go to next ad, cycle back to the first if needed
-  };
-
   const handleSearch = () => {
-    onSearch(query.trim()); // Trigger search with trimmed query
+    onSearch(query.trim());
   };
 
   const handleKeyUp = (e) => {
     if (e.key === "Enter") {
-      handleSearch(); // Trigger search on Enter key press
+      handleSearch();
     }
+  };
+
+  const handleClick = (event, redirectPath) => {
+    if (!isLoggedIn) {
+      event.preventDefault();
+      sessionStorage.setItem("redirectAfterLogin", redirectPath);
+      setShowLoginPopup(true);
+    }
+  };
+
+  const handleLogin = () => {
+    setShowLoginPopup(false);
+    navigate("/Login");
+  };
+
+  const handleRegister = () => {
+    setShowLoginPopup(false);
+    navigate("/Register");
+  };
+
+  const handleLogout = () => {
+    setShowLogoutPopup(true); // Show logout confirmation popup
+  };
+
+  const confirmLogout = () => {
+    sessionStorage.removeItem("userLoggedIn"); // Remove login state
+    setIsLoggedIn(false); // Update state
+    setShowLogoutPopup(false); // Close popup
+    navigate("/"); // Redirect to main page
+  };
+
+  const cancelLogout = () => {
+    setShowLogoutPopup(false); // Close popup
   };
 
   return (
     <header>
       {/* Ads Section */}
       <div id="black">
-        <span
-          className="arrow"
-          onClick={handlePrevious} // Click to go to previous ad
-          style={{ cursor: "pointer" }}
-        >
+        <span className="arrow" onClick={() => setCurrentAdIndex((prevIndex) => (prevIndex - 1 + ads.length) % ads.length)} style={{ cursor: "pointer" }}>
           &lt;
         </span>
         <span id="add" style={{ margin: "0 20px" }}>
           {ads.length > 0
-            ? ads[currentAdIndex]?.text.replace(/^Ad \d+:\s*/, "") // Remove the "Ad" prefix dynamically
+            ? ads[currentAdIndex]?.text.replace(/^Ad \d+:\s*/, "")
             : "No ads available"}
         </span>
-        <span
-          className="arrow"
-          onClick={handleNext} // Click to go to next ad
-          style={{ cursor: "pointer" }}
-        >
+        <span className="arrow" onClick={() => setCurrentAdIndex((prevIndex) => (prevIndex + 1) % ads.length)} style={{ cursor: "pointer" }}>
           &gt;
         </span>
       </div>
@@ -94,7 +113,15 @@ const Header = ({ onSearch }) => {
           <div className="separator"></div>
           <Link to="/account" className="nav-link">Dashboard</Link>
           <div className="separator"></div>
-          <Link to="/Login" className="nav-link sign-in-button">Sign In</Link>
+          {isLoggedIn ? (
+            <span className="nav-link sign-in-button" onClick={handleLogout}>
+              Sign Out
+            </span>
+          ) : (
+            <Link to="/Login" className="nav-link sign-in-button">
+              Sign In
+            </Link>
+          )}
         </nav>
       </div>
 
@@ -106,15 +133,10 @@ const Header = ({ onSearch }) => {
             placeholder="Search"
             className="search-box"
             value={query}
-            onChange={(e) => setQuery(e.target.value)} // Update query state
-            onKeyUp={handleKeyUp} // Trigger search on Enter key press
+            onChange={(e) => setQuery(e.target.value)}
+            onKeyUp={handleKeyUp}
           />
-          <img
-            src={searchIcon}
-            alt="Search Icon"
-            className="search-icon"
-            onClick={handleSearch} // Trigger search on click
-          />
+          <img src={searchIcon} alt="Search Icon" className="search-icon" onClick={handleSearch} />
         </div>
         <div className="header-icons">
           <div className="icon-container">
@@ -124,24 +146,52 @@ const Header = ({ onSearch }) => {
             </a>
           </div>
           <div className="icon-container">
-            <Link to="/try">
-              <img src={wishlistIcon} alt="Wishlist Icon" className="icon" id="wish" />
+            <Link to="/Wishlist" onClick={(e) => handleClick(e, "/Wishlist")}>
+              <img  id ="wishpic" src={wishlistIcon} alt="Wishlist Icon" className="icon" />
               <div className="tooltip">View Wishlist</div>
             </Link>
           </div>
           <div className="icon-container">
-            <Link to="/account">
-              <img src={accountIcon} alt="Account Icon" className="icon" />
-              <div className="tooltip">Account</div>
-            </Link>
-          </div>
+  <Link to="/account" onClick={(e) => handleClick(e, "/account")}>
+    <img src={accountIcon} alt="Account Icon" className="icon" />
+    <div className="tooltip">Account</div>
+  </Link>
+</div>
+
           <div className="icon-container">
-            <Link to="/Bookslist">
+            <Link to="/Bookslist" onClick={(e) => handleClick(e, "/Bookslist")}>
               <img src={cartIcon} alt="Cart Icon" className="icon" />
               <div className="tooltip">View Cart</div>
             </Link>
           </div>
         </div>
+        {/* Login Popup */}
+{showLoginPopup && (
+  <div className="popup">
+    <div className="popup-content">
+      <button className="close-button" onClick={() => setShowLoginPopup(false)}>×</button>
+      <h2 className="popup-title">Welcome</h2>
+      <button className="popup-signin-button" onClick={handleLogin}>Sign In</button>
+      <button className="popup-create-account-button" onClick={handleRegister}>Create Account</button>
+     
+    </div>
+  </div>
+)}
+
+
+{/* Logout Popup */}
+{showLogoutPopup && (
+  <div className="popup">
+    <div className="popup-content">
+      <button className="close-button" onClick={() => setShowLogoutPopup(false)}>X</button>
+      <h2 className="popup-titl" >Confirm Logout</h2>
+      <p>Are you sure you want to log out?</p>
+      <button className="popup-signin-button" onClick={confirmLogout}>Yes</button>
+      <button  className="popup-signin-button" onClick={cancelLogout}>No</button>
+    </div>
+  </div>
+)}
+
       </div>
     </header>
   );

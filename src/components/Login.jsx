@@ -40,7 +40,16 @@ const Login = () => {
 
       if (data.message === "Login successful!") {
         setErrorMessage("");
-        navigate("/MainPage");
+
+        // Set login state
+        sessionStorage.setItem("userLoggedIn", "true");
+
+        // Retrieve redirect target from sessionStorage
+        const redirectTarget = sessionStorage.getItem("redirectAfterLogin") || "/MainPage";
+        sessionStorage.removeItem("redirectAfterLogin"); // Clear the redirect path after navigating
+
+        // Navigate to the target page
+        navigate(redirectTarget);
       } else {
         setErrorMessage(data.message);
       }

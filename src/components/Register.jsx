@@ -52,9 +52,10 @@ const Register = () => {
       const data = await response.json();
       if (data.message === "Signup successful!") {
         setSuccessMessage("Signup successful! Redirecting to the login page...");
+        // Redirect to login after showing the success message
         setTimeout(() => {
           navigate("/login");
-        }, 2000);
+        }, 2000); // 2 seconds delay for user feedback
       } else {
         setErrorMessage(data.message || "An error occurred. Please try again.");
       }
@@ -108,8 +109,8 @@ const Register = () => {
           onChange={(e) => setPassword(e.target.value)}
           aria-label="Password"
         />
-        <button type="button" className="Rregister-button" onClick={handleRegister}>
-          Register
+        <button type="button" className="Rregister-button" onClick={handleRegister} disabled={loading}>
+          {loading ? "Registering..." : "Register"}
         </button>
       </form>
       <p className="Rsignup-text">
