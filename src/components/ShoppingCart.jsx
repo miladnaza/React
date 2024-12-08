@@ -35,7 +35,7 @@ function ShoppingCart({ cartItems, totalItems, onQuantityChange, onRemove }) {
           ))}
         </tbody>
       </table>
-      <a href="#" class="shopping-link">Continue Shopping</a>
+      <a href="/Account" class="shopping-link">Continue Shopping</a>
     </div>
   );
 }
