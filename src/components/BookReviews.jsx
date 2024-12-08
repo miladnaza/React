@@ -8,7 +8,7 @@ const BookReview = ({ bookId }) => {
 
   const fetchReviews = async () => {
     try {
-      const response = await fetch(`http://localhost:3000/api/reviews/book/${bookId}`);
+      const response = await fetch(`${import.meta.env.VITE_BE_URL}/api/reviews/book/${bookId}`);
       if (!response.ok) throw new Error("No reviews found");
       const data = await response.json();
       setReviews(data.reviews || []);

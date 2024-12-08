@@ -14,7 +14,7 @@ const RatingsAndReviews = ({ book }) => {
 
   const fetchRatingSnapshot = async () => {
     try {
-      const response = await fetch(`http://localhost:3000/api/reviews/book/${book._id}`);
+      const response = await fetch(`${import.meta.env.VITE_BE_URL}/api/reviews/book/${book._id}`);
       if (!response.ok) throw new Error("Failed to fetch reviews");
       const data = await response.json();
 
@@ -67,7 +67,7 @@ const RatingsAndReviews = ({ book }) => {
 
   const handleFormSubmit = async (formData) => {
     try {
-      const response = await fetch("http://localhost:3000/api/reviews", {
+      const response = await fetch(`${import.meta.env.VITE_BE_URL}/api/reviews`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

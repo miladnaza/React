@@ -4,7 +4,6 @@ import MainPage from "./pages/MainPage";
 import Details from "./pages/Details";
 import AccountCenter from "./pages/AccountCenter";
 import Bookslist from "./components/Bookslist";
-import "./styles/ShoppingCart.css";
 import Login from "./components/Login";
 import Register from "./components/Register";
 const App = () => {

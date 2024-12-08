@@ -15,7 +15,7 @@ const Recommendations = ({ category, currentBookShortTitle }) => {
     const fetchRecommendations = async () => {
       try {
         const response = await fetch(
-          `http://localhost:3000/api/books/category/${encodeURIComponent(`All`)}`
+          `${import.meta.env.VITE_BE_URL}/api/books/category/${encodeURIComponent(`All`)}`
         );
         if (!response.ok) {
           throw new Error("Failed to fetch recommendations");
