@@ -1,0 +1,100 @@
+/* Main Container */
+.overview-container {
+    margin: 20px 0;
+    padding: 20px 40px; /* Add padding for spacing */
+    background-color: #fff;
+    font-family: Arial, sans-serif;
+    line-height: 1.8; /* Adjust for better readability */
+    color: #333;
+  }
+  
+  /* Title and Divider */
+  .overview-title {
+    font-family: Arial, sans-serif;
+    margin-left: 10px;
+    font-size: 1.5rem;
+    font-weight: 500px;
+    color: #333;
+    margin-bottom: 5px;
+  }
+  
+  .overview-line {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 10px 0 20px;
+  }
+  
+  /* Key Details Section */
+  .overview-details {
+    display: flex;
+    gap: 10px; /* Space between each detail box */
+    margin-bottom: 20px;
+    justify-content: start; /* Align boxes to the left */
+    margin-left: 10px;
+  }
+  
+  .detail-box {
+
+    background-color:rgb(245, 246, 246); /* Light gray background */
+    padding: 5px 10px; /* Slightly increased padding */
+    border-radius: 5px;
+    padding-top: 0px;
+    text-align: left;
+    box-shadow: 0 1px 3px rgb(245, 246, 246); /* Subtle shadow for depth */
+    display: inline-block; /* Let the box size adjust to its content */
+     /* Optional: Set a minimum width for consistency */
+    
+  }
+  
+  .detail-box h3 {
+    font-size: 13px;
+    color: #464545;
+    font-family: Arial, sans-serif;
+    margin-bottom: 5px;
+  }
+  
+  .detail-box p {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    margin: 0;
+    color: #333;
+    font-weight: bold;
+  }
+  .overview-description{
+    margin-left: 10px; 
+  }
+  /* Description Section */
+  .overview-description p {
+    margin-left: 10px;
+    margin-left: 10px;
+    margin: 10px 0;
+    color: #333;
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+  }
+  
+  /* Publisher Details */
+  .overview-publisher {
+    margin-top: 20px;
+  }
+  
+  .overview-publisher p {
+    color: #333;
+    font-family: Arial, sans-serif;
+    margin: 5px 0;
+    font-size: 1rem;
+  }
+  
+  .overview-publisher strong {
+    color: #333;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+  }
+  
+ .overview-publisher{
+    color: #333;
+    font-family: Arial, sans-serif;
+    margin-top: 40px;
+    margin-left: 10px;
+ }
+  

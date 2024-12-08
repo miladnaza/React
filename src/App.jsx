@@ -1,25 +1,29 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import MainPage from "./pages/MainPage";
-import Try from "./pages/Try";
 import Details from "./pages/Details";
 import AccountCenter from "./pages/AccountCenter";
 import Bookslist from "./components/Bookslist";
-import Register from "./components/Register";
-import Login from "./components/Login"
 import "./styles/ShoppingCart.css";
-
+import Login from "./components/Login";
+import Register from "./components/Register";
 const App = () => {
   return (
     <Router>
       <Routes>
+        {/* Route for Main Page */}
         <Route path="/" element={<MainPage />} />
-        <Route path="/login" element={<Login />} /> {}
+        <Route path="/login" element={<Login />} />
+        <Route path="/MainPage" element={<MainPage />} />
         <Route path="/register" element={<Register />} />
+        {/* Account Center Route */}
         <Route path="/account" element={<AccountCenter />} />
+
+        {/* Book Details Route */}
         <Route path="/book-details/:shortTitle" element={<Details />} />
-        <Route path="/Bookslist" element={<Bookslist />} />        
-        <Route path="/try" element={<Try />} />
+
+        {/* Books List Route */}
+        <Route path="/Bookslist" element={<Bookslist />} />
       </Routes>
     </Router>
   );

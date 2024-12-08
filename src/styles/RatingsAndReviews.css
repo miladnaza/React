@@ -1,0 +1,167 @@
+/* Container */
+.ratings-reviews-container {
+    margin-top: 30px;
+    font-family: Arial, sans-serif;
+    margin-left: 20px;
+    border: none;
+  }
+  
+  /* Title */
+  .ratings-reviews-title {
+    font-size: 1.3rem;
+    text-decoration: underline;
+    margin-left: 20px;
+    text-decoration-color: rgb(216, 214, 214);
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  /* Row Layout */
+  .ratings-reviews-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    height: 200px;
+    border: none;
+  }
+  
+  /* Rating Snapshot */
+  .rating-snapshot {
+    margin-left: 25px;
+    width: 25%;
+  }
+  
+  .rating-snapshot p {
+    font-family: Arial, sans-serif;
+    font-size: 1.9rem;
+    font-weight: bold;
+    margin-top: -1px;
+    
+  }
+  
+  .rating-snapshot h4 {
+    font-family: Arial, sans-serif;
+    font-size: 0.9rem;
+    color: #313131;
+    margin-bottom: 15px;
+  }
+  
+  .snapshot-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  
+  .progress-bar {
+    flex: 1;
+    height: 13px;
+    width: 20px;
+    margin: 0 8px;
+    background-color: #c5c4c4;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  
+  .progress-filled {
+    height: 100%;
+    
+    background-color: #3d3d3d;
+    border-radius: 5px;
+  }
+  
+  /* Overall Rating */
+  .overall-rating {
+    text-align: center;
+    width: 10%;
+    margin-top: 0px;
+  }
+  .overall-rating p{
+    font-family: Arial, sans-serif;
+    font-size: 0.9rem;
+    color: #313131;
+    font-weight: bold;
+  }
+  .overall-rating .rating-value {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  .stars-row {
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+  }
+  
+  .overall-rating .star {
+    font-size: 1rem;
+    color: #ccc;
+  }
+  
+  .overall-rating .star.filled-star {
+    color: #383837;
+  }
+  
+  /* Review Stars */
+  .review-stars {
+    width: 30%;
+    text-align: center;
+  }
+  
+  .review-stars h4 {
+    font-family: Arial, sans-serif;
+    font-size: 0.9rem;
+    color: #313131;
+    margin-bottom: 5px;
+  }
+  
+  .review-stars .stars-row {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .review-stars .star {
+    font-size: 1.8rem;
+    color: #ccc;
+    cursor: pointer;
+    margin-right: 5px;
+    transition: color 0.3s ease;
+  }
+  
+  /* Empty stars */
+  .empty-star {
+    color: #ccc; /* Gray for unselected stars */
+  }
+  
+  /* Hover and Selected States */
+  .star {
+    cursor: pointer;
+    font-size: 24px;
+    color: lightgray; /* Default color */
+  }
+  
+  .star.hovered-star,
+  .star:hover {
+    color: rgb(43, 43, 43); /* Hover color */
+  }
+  
+  .star.filled-star {
+    color: rgb(32, 32, 32); /* Selected color */
+  }
+  
+  /* Review Stars Description */
+  .review-stars p {
+    font-size: 0.8rem;
+    color: #555;
+    margin-top: 5px;
+  }
+  #starsik{
+    font-family: Arial, sans-serif;
+    font-size: 0.9rem;
+    color: #313131;
+    margin-bottom: 5px;
+    line-height: 1.5;
+  }
+  

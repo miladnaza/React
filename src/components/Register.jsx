@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useNavigate, Link } from "react-router-dom"; 
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/Register.css";
 
 const Register = () => {
@@ -11,17 +11,25 @@ const Register = () => {
   const [agreeToEmail, setAgreeToEmail] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    document.body.className = "Rbody";
+    return () => {
+      document.body.className = "";
+    };
+  }, []);
+
   const handleRegister = async () => {
-    if (!firstName || !lastName || !phoneNumber || !email || !password) {
-      setErrorMessage("Please fill in all fields.");
+    if (!email || !password) {
+      setErrorMessage("Please enter your email and password");
       return;
     }
 
-    try {
-      console.log("Signup request data:", { firstName, lastName, phoneNumber, email, password });
+    setLoading(true);
 
+    try {
       const response = await fetch("http://localhost:3000/register", {
         method: "POST",
         headers: {
@@ -43,85 +51,72 @@ const Register = () => {
 
       const data = await response.json();
       if (data.message === "Signup successful!") {
-        setSuccessMessage("Signup successful! Redirecting to the login page.");
+        setSuccessMessage("Signup successful! Redirecting to the login page...");
         setTimeout(() => {
           navigate("/login");
         }, 2000);
       } else {
-        setErrorMessage(data.message);
+        setErrorMessage(data.message || "An error occurred. Please try again.");
       }
     } catch (error) {
-      console.error("Signup request error:", error);
       setErrorMessage("Signup request failed. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <div className="register-container">
-      <h1 className="register-title">CREATE ACCOUNT</h1>
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
-      {successMessage && <p className="success-message">{successMessage}</p>}
-      <form className="register-form" onSubmit={(e) => e.preventDefault()}>
+    <div className="Rregister-container">
+      <h1 className="Rregister-title">Create Account</h1>
+      {errorMessage && <p className="Rerror-message">{errorMessage}</p>}
+      {successMessage && <p className="Rsuccess-message">{successMessage}</p>}
+      <form className="Rregister-form" onSubmit={(e) => e.preventDefault()}>
         <input
           type="text"
           placeholder="First name"
-          className="register-input"
+          className="Rregister-input"
           value={firstName}
           onChange={(e) => setFirstName(e.target.value)}
         />
         <input
           type="text"
           placeholder="Last name"
-          className="register-input"
+          className="Rregister-input"
           value={lastName}
           onChange={(e) => setLastName(e.target.value)}
         />
         <input
           type="text"
           placeholder="Phone number"
-          className="register-input"
+          className="Rregister-input"
           value={phoneNumber}
           onChange={(e) => setPhoneNumber(e.target.value)}
         />
         <input
           type="email"
           placeholder="Email"
-          className="register-input"
+          className="Rregister-input"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          aria-label="Email"
         />
         <input
           type="password"
           placeholder="Password"
-          className="register-input"
+          className="Rregister-input"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          aria-label="Password"
         />
-        <div className="email-offers-container">
-          <input
-            type="checkbox"
-            id="emailOffers"
-            className="email-offers-checkbox"
-            checked={agreeToEmail}
-            onChange={() => setAgreeToEmail(!agreeToEmail)}
-          />
-          <label htmlFor="emailOffers" className="email-offers-label">
-            Join our email list to get exclusive offers, the best in books, and more. 
-            <br />You may unsubscribe at any time.
-          </label>
-        </div>
-        <p className="signup-text">
-          By selecting "Create Account", you agree to our Terms of Use and Privacy Policy.
-        </p>
-        <button type="button" className="register-button" onClick={handleRegister}>
-          Create Account
+        <button type="button" className="Rregister-button" onClick={handleRegister}>
+          Register
         </button>
       </form>
-      <p className="signup-text">
+      <p className="Rsignup-text">
         Already have an account?{" "}
-        <Link to="/login" className="sign-link">
-          Sign up
-        </Link>
+        <a href="/login" className="Rsignup-link">
+          Log in here
+        </a>
       </p>
     </div>
   );

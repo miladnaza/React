@@ -1,0 +1,139 @@
+.recommend-container a {
+    color:#333; /* Ensure all links are black */
+    text-decoration: none;
+  }
+  
+.recommend-book-title {
+  text-decoration: none; /* Ensures book titles don't have underlines */
+}
+
+.recommend-book-author:hover {
+  text-decoration: underline; /* Adds underline only on hover */
+}
+
+.recommend-container {
+  margin-top: 0px;
+  position: relative; /* Ensure scroll buttons are positioned relative to the container */
+}
+
+.recommend-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+  margin-left: 45px;
+}
+
+.recommend-book-container {
+  display: flex;
+  overflow-x: auto; /* Enable horizontal scrolling */
+  scroll-behavior: smooth; /* Smooth scrolling effect */
+  gap: 20px; /* Space between cards */
+  padding: 20px;
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+}
+
+.recommend-book-container::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Chrome, Safari, and Edge */
+}
+
+.recommend-book-card {
+  text-align: left; /* Align content to the left */
+  border: none;
+  padding: 10px;
+  min-width: 140px; /* Fixed minimum width for horizontal scrolling */
+  max-width: 140px; /* Ensures uniform card size */
+  box-shadow: none;
+  background-color: transparent;
+  transition: transform 0.3s ease-in-out; /* Smooth scaling transition */
+}
+
+.recommend-book-card:hover {
+  transform: scale(1.05);
+}
+
+.recommend-book-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover; /* Ensure the image fits perfectly without distortion */
+  border-radius: 0;
+  margin-bottom: 10px;
+}
+
+.recommend-book-title {
+  font-size: 14px;
+  font-weight: bold;
+  color: #000;
+  line-height: 1.4;
+  margin-bottom: 5px;
+  text-overflow: ellipsis; /* Truncate long text with ellipsis */
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.recommend-book-price {
+  font-size: 15px;
+  color: #555;
+}
+
+.recommend-discounted-price {
+  font-size: 14px;
+  color: #d9534f; /* Red for discounted price */
+  text-decoration: line-through;
+  margin-left: 5px;
+}
+
+/* Shared Button Styles */
+.scroll-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 80px; /* Width of the button */
+    height: 160px; /* Height of the button */
+    background-color: #fff;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    overflow: hidden; /* Ensures no content outside the shape is visible */
+    z-index: 10;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+  }
+  
+  /* Left Button */
+  .scroll-button.left {
+    left: -20px; /* Position the button on the left side */
+    border-radius: 0 80px 80px 0; /* Half-circle on the left side */
+    height: 50px; /* Adjust height for visual consistency */
+    width: 40px; /* Adjust width for visual consistency */
+    margin-left: 20px; /* Adds spacing from content */
+  }
+  
+  /* Right Button */
+  .scroll-button.right {
+    margin-right: 20px;
+    right: -20px; /* Position the button on the right side */
+    border-radius: 80px 0 0 80px; /* Half-circle on the right side */
+    height: 50px; /* Adjust height for visual consistency */
+    width: 40px; /* Adjust width for visual consistency */
+  }
+  
+  /* Hover Effect */
+  .scroll-button:hover {
+    background-color:white; /* Change background color on hover */
+    transform: translateY(-50%) scale(1.1);
+  }
+  
+  /* Arrow inside the button */
+  .scroll-button::after {
+    content: '>'; /* Default arrow for the right button */
+    font-size: 20px;
+    color: #000;
+    position: absolute;
+  }
+  
+  .scroll-button.left::after {
+    content: '<'; /* Left arrow for the left button */
+  }
+  

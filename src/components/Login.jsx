@@ -1,12 +1,20 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useNavigate, Link } from "react-router-dom";
 import "../styles/Login.css";
 
 const Login = () => {
-  const [email, setEmail] = useState(""); 
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    document.body.className = "Lbody";
+    return () => {
+      document.body.className = "";
+    };
+  }, []);
 
   const handleLogin = async () => {
     if (!email || !password) {
@@ -14,63 +22,70 @@ const Login = () => {
       return;
     }
 
+    setLoading(true);
     try {
       const response = await fetch("http://localhost:3000/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          email: email.trim(), 
-          password: password.trim(),
-        }),
+        body: JSON.stringify({ email: email.trim(), password: password.trim() }),
       });
 
+      const data = await response.json();
+
       if (!response.ok) {
-        throw new Error(`Login failed.: ${response.status}`);
+        throw new Error(data.message || `Error ${response.status}`);
       }
 
-      const data = await response.json();
       if (data.message === "Login successful!") {
-        console.log("Login successful.");
         setErrorMessage("");
-        navigate("/"); 
+        navigate("/MainPage");
       } else {
         setErrorMessage(data.message);
       }
     } catch (error) {
       setErrorMessage("Login request error: " + error.message);
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <div className="login-container">
-      <h1 className="login-title">Welcome Back</h1>
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
-      <form className="login-form" onSubmit={(e) => e.preventDefault()}>
+    <div className="Llogin-container">
+      <h1 className="Llogin-title">Welcome Back</h1>
+      {errorMessage && <p className="Lerror-message">{errorMessage}</p>}
+      <form className="Llogin-form" onSubmit={(e) => e.preventDefault()}>
         <input
           type="email"
           placeholder="Email"
-          className="login-input"
+          className="Llogin-input"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          aria-label="Email"
         />
         <input
           type="password"
           placeholder="Password"
-          className="login-input"
+          className="Llogin-input"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          aria-label="Password"
         />
-        <button type="button" className="login-button" onClick={handleLogin}>
-          Log in
+        <button
+          type="button"
+          className="Llogin-button"
+          onClick={handleLogin}
+          disabled={!email || !password || loading}
+        >
+          {loading ? "Logging in..." : "Log in"}
         </button>
       </form>
-      <p className="signup-text">
+      <p className="Lsignup-text">
         Don't have an account?{" "}
-        <a href="/register" className="signup-link">
+        <Link to="/Register" className="Lsignup-link">
           Sign Up
-        </a>
+        </Link>
       </p>
     </div>
   );

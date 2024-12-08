@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import BookDetails from "../components/BookDetails";
-
+import Navigation from "../components/Navigation";
 const Details = () => {
   const { shortTitle } = useParams(); 
   const [book, setBook] = useState(null);
@@ -53,6 +53,7 @@ const Details = () => {
   return (
     <div>
       <Header></Header>
+      <Navigation></Navigation>
       <BookDetails></BookDetails>
       <Footer></Footer>
     </div>
