@@ -10,6 +10,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    // Set the background class for the login page
     document.body.className = "Lbody";
     return () => {
       document.body.className = "";
@@ -41,12 +42,13 @@ const Login = () => {
       if (data.message === "Login successful!") {
         setErrorMessage("");
 
-        // Set login state
+        // Save login state and user details in sessionStorage
         sessionStorage.setItem("userLoggedIn", "true");
+        sessionStorage.setItem("userId", data.user.id); // Save user ID for cart operations
 
-        // Retrieve redirect target from sessionStorage
+        // Retrieve the page to redirect after login
         const redirectTarget = sessionStorage.getItem("redirectAfterLogin") || "/MainPage";
-        sessionStorage.removeItem("redirectAfterLogin"); // Clear the redirect path after navigating
+        sessionStorage.removeItem("redirectAfterLogin"); // Clear the redirect path
 
         // Navigate to the target page
         navigate(redirectTarget);

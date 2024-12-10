@@ -1017,3 +1017,22 @@ body, html {
   width: 27px;
   height: 27px;
 }
+
+.cart-badge {
+  position: absolute;
+  top: -12px; /* Adjust position closer to the cart icon */
+  right: -25px; /* Adjust position closer to the cart icon */
+  background-color: black; /* Vibrant color for the badge */
+  color: white;
+  font-size: 10px; /* Smaller font size */
+  font-weight: bold;
+  padding: 2px 6px; /* Reduced padding */
+  border-radius: 50%; /* Makes it a circle */
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  min-width: 15px; /* Smaller circle for single-digit numbers */
+  height: 15px; /* Keeps the badge circular */
+}

@@ -1,6 +1,6 @@
 // Import necessary libraries
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import checkedIcon from "./image/checked.png";
 import moreIcon from "./image/more.png";
 import priceIcon from "./image/price.png";
@@ -10,6 +10,8 @@ import Recommendations from "./Recommendations";
 import BookReviews from "./BookReviews";
 import "../styles/Bookdetails.css";
 import RatingsAndReviews from "./RatingsAndReviews";
+
+
 
 const BookDetails = () => {
   const { shortTitle } = useParams();
@@ -22,7 +24,10 @@ const BookDetails = () => {
   const [showModal2, setShowModal2] = useState(false); // Modal for Offer 2
   const [showModal3, setShowModal3] = useState(false); // Modal for Offer 3
   const [reviewCount, setReviewCount] = useState(0);
-
+  const [quantity, setQuantity] = useState(1); // Quantity for adding to cart
+  const [cartPopupVisible, setCartPopupVisible] = useState(false); // Popup for cart success
+  const [loginPopupVisible, setLoginPopupVisible] = useState(false); // Popup for login required
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchBookDetails = async () => {
@@ -31,10 +36,11 @@ const BookDetails = () => {
           `${import.meta.env.VITE_BE_URL}/api/books/shortTitle/${encodeURIComponent(shortTitle)}`
         );
         if (!response.ok) {
-          if (response.status === 404) {
-            throw new Error(`Book with shortTitle "${shortTitle}" not found.`);
-          }
-          throw new Error(`Error fetching book details: ${response.statusText}`);
+          throw new Error(
+            response.status === 404
+              ? `Book with shortTitle "${shortTitle}" not found.`
+              : `Error fetching book details: ${response.statusText}`
+          );
         }
         const data = await response.json();
         setBook(data[0]);
@@ -44,7 +50,6 @@ const BookDetails = () => {
         setLoading(false);
       }
     };
-
     fetchBookDetails();
   }, [shortTitle]);
 
@@ -74,45 +79,66 @@ const BookDetails = () => {
         stars.push(<span key={i} className="star empty">☆</span>);
       }
     }
-
     return stars;
   };
-  const fetchReviewCount = async () => {
+
+  const handleAddToCart = async () => {
+    const userId = sessionStorage.getItem("userId");
+    if (!userId) {
+      setLoginPopupVisible(true);
+      return;
+    }
+
     try {
-      const response = await fetch(
-        `${import.meta.env.VITE_BE_URL}/api/reviews/book/${shortTitle}`
-      );
-      if (!response.ok) throw new Error("Failed to fetch review count");
-  
-      const data = await response.json();
-      setReviewCount(data.reviews.length || 0); // Set the count of reviews
+      const response = await fetch(`${import.meta.env.VITE_BE_URL}/api/cart`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ userId, bookId: book._id, quantity }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to add book to cart");
+      }
+
+      setCartPopupVisible(true);
     } catch (error) {
-      console.error("Error fetching review count:", error.message);
+      alert(error.message);
     }
   };
+
+  const closeCartPopup = () => {
+    setCartPopupVisible(false);
+  };
+
+  const closeLoginPopup = () => {
+    setLoginPopupVisible(false);
+    navigate("/login");
+  };
+
   useEffect(() => {
     const fetchReviewCount = async () => {
-      if (!book || !book._id) return; // Ensure the book and its ID are loaded
-  
+      if (!book || !book._id) return;
+
       try {
         const response = await fetch(
           `${import.meta.env.VITE_BE_URL}/api/reviews/book/${book._id}`
         );
         if (!response.ok) throw new Error("Failed to fetch review count");
-  
+
         const data = await response.json();
-        setReviewCount(data.reviews?.length || 0); // Update the review count
+        setReviewCount(data.reviews?.length || 0);
       } catch (error) {
         console.error("Error fetching review count:", error.message);
       }
     };
-  
     fetchReviewCount();
   }, [book]);
-    
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
+
 
   return (
     <div id="book-details-container">
@@ -248,21 +274,51 @@ const BookDetails = () => {
       <div id="book-actions-container">
     {/* Quantity Selector and Add to Bag */}
     <div className="quantity-and-cart">
-      {/* Quantity Selector */}
-      <select id="quantity-selector" className="quantity-dropdown">
-        {Array.from({ length: 100}, (_, i) => (
-          <option key={i + 1} value={i + 1}>
-            {i + 1}
-          </option>
-        ))}
-      </select>
+      
+          <select 
+            id="quantity-selector"
+            className="quantity-dropdown"
+            value={quantity}
+            onChange={(e) => setQuantity(parseInt(e.target.value, 10))}
+          >
+            {Array.from({ length: 10 }, (_, i) => (
+              <option key={i + 1} value={i + 1}>
+                {i + 1}
+              </option>
+            ))}
+          </select>
+          <button  className="add-to-bag-button" onClick={handleAddToCart}>Add to Cart</button>
+    
+          </div>
 
-      {/* Add to Bag Button */}
-      <button className="add-to-bag-button">
-        Add to Cart
+    {cartPopupVisible && (
+  <div className="popup">
+    <div className="popup-content">
+      <button className="close-button" onClick={closeCartPopup}>
+        ✖
+      </button>
+      <h2>Book added to cart successfully!</h2>
+      <button className="view-cart-button" onClick={() => navigate("/Bookslist")}>
+        View Cart
       </button>
     </div>
+  </div>
+)}
 
+      {/* Login Popup */}
+      {loginPopupVisible && (
+        <div className="popup">
+          <div className="popup-content">
+            <button className="close-button" onClick={() => setLoginPopupVisible(false)}>
+              ✖
+            </button>
+            <h2>Please log in to add items to your cart</h2>
+            <button className="popup-signin-button" onClick={closeLoginPopup}>
+              Log In
+            </button>
+          </div>
+        </div>
+      )}
     {/* Wishlist Button */}
     <button className="wishlis-button">
   <svg
@@ -278,7 +334,6 @@ const BookDetails = () => {
     ></path>
   </svg>
 </button>
-
   </div>
       {/* Zoom Modal */}
       {isZoomed && (
