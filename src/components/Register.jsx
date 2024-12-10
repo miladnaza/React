@@ -15,30 +15,22 @@ const Register = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    document.body.className = "Rbody"; // Apply styling to the body
+    document.body.className = "Rbody";
     return () => {
-      document.body.className = ""; // Cleanup on unmount
+      document.body.className = "";
     };
   }, []);
 
   const handleRegister = async () => {
-    setErrorMessage("");
-    setSuccessMessage("");
-
-    // Validation
-    if (!firstName || !lastName || !phoneNumber || !email || !password) {
-      setErrorMessage("Please fill in all fields.");
-      return;
-    }
-
-    if (password.length < 6) {
-      setErrorMessage("Password must be at least 6 characters long.");
+    if (!email || !password) {
+      setErrorMessage("Please enter your email and password");
       return;
     }
 
     setLoading(true);
+
     try {
-      const response = await fetch("http://localhost:3000/register", {
+      const response = await fetch(`${import.meta.env.VITE_BE_URL}/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -54,17 +46,21 @@ const Register = () => {
       });
 
       if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.message || "Signup failed.");
+        throw new Error(`Signup failed: ${response.status}`);
       }
 
       const data = await response.json();
       if (data.message === "Signup successful!") {
-        setSuccessMessage("Signup successful! Redirecting to login...");
-        setTimeout(() => navigate("/login"), 2000);
+        setSuccessMessage("Signup successful! Redirecting to the login page...");
+        // Redirect to login after showing the success message
+        setTimeout(() => {
+          navigate("/login");
+        }, 2000); // 2 seconds delay for user feedback
+      } else {
+        setErrorMessage(data.message || "An error occurred. Please try again.");
       }
     } catch (error) {
-      setErrorMessage(error.message || "Signup failed. Please try again.");
+      setErrorMessage("Signup request failed. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -103,6 +99,7 @@ const Register = () => {
           className="Rregister-input"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          aria-label="Email"
         />
         <input
           type="password"
@@ -110,21 +107,25 @@ const Register = () => {
           className="Rregister-input"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          aria-label="Password"
         />
-        <label className="Rregister-checkbox">
+        <div className="Remail-offers-container">
           <input
             type="checkbox"
+            id="emailOffers"
+            className="Remail-offers-checkbox"
             checked={agreeToEmail}
-            onChange={(e) => setAgreeToEmail(e.target.checked)}
+            onChange={() => setAgreeToEmail(!agreeToEmail)}
           />
-          I agree to receive emails about updates.
-        </label>
-        <button
-          type="button"
-          className="Rregister-button"
-          onClick={handleRegister}
-          disabled={loading}
-        >
+          <label htmlFor="emailOffers" className="Remail-offers-label">
+            Join our email list to get exclusive offers, the best in books, and more. 
+            You may unsubscribe at any time.
+          </label>
+        </div>
+        <p className="Rsignup-text">
+          By selecting "Create Account", you agree to our Terms of Use and Privacy Policy.
+        </p>
+        <button type="button" className="Rregister-button" onClick={handleRegister} disabled={loading}>
           {loading ? "Registering..." : "Register"}
         </button>
       </form>

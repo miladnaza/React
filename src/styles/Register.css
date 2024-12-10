@@ -1,15 +1,32 @@
 .Rregister-container {
   background-color: white;
-  padding: 2rem;
+  padding: 2.5rem;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
   width: 600px;
-  height: 650px; 
+  height: auto; 
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: 50px;
+  align-items: center; 
+  margin: 50px auto; 
+  position: relative; 
+}
+
+.Rregister-container:before {
+  content: ""; 
+  position: absolute;
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 100%; 
+  background-image: url('/images/logo1.png');
+  background-repeat: no-repeat; 
+  background-size: 450px auto; 
+  background-position: top -100px right -60px;
+  opacity: 0.2;
+  pointer-events: none; 
 }
 
 /* Title Styles */
@@ -18,17 +35,31 @@
   font-weight: bold;
   margin-bottom: 2rem;
   color: #505050;
-  text-align: center;
+
 }
+
+.Rregister-form {
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  width: 500px; 
+  gap: 1rem; 
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+}
+
 
 /* Input Fields */
 .Rregister-input {
-  width: 50%;
-  padding: 0.8rem;
-  margin-bottom: 1rem;
+  width: 100%;
+  max-width: 400px;
+  padding: 0.8rem; 
+  margin-bottom: 0.4rem;
   border: 1px solid #ddd;
   border-radius: 5px;
-  font-size: 1rem;
+  font-size: 0.9rem;
+  box-sizing: border-box;
 }
 
 .Rregister-input:focus {
@@ -39,25 +70,33 @@
 
 .Remail-offers-container {
   display: flex;
-  align-items: flex-start;
-  margin-bottom: 1.5rem;
+  align-items: flex-start; /* 텍스트를 체크박스와 수직 정렬 */
+  margin-bottom: 0rem;
   font-size: 0.9rem;
   color: #505050;
-  line-height: 1.4;
+  line-height: 1.4; /* 텍스트 줄 간격 */
+  text-align: left; /* 텍스트 정렬 */
+  width: 100%; /* 부모 컨테이너의 너비 */
+  max-width: 400px; /* 최대 너비 제한 */
+
+  padding: 1rem; /* 내부 여백 */
 }
 
 .Remail-offers-checkbox {
-  margin-right: 0.4rem;
-  margin-top: 3px;
+  margin-right: 0.8rem; /* 체크박스와 텍스트 간 간격 */
   cursor: pointer;
+  width: 18px; /* 체크박스 크기 */
+  height: 18px; /* 체크박스 크기 */
 }
 
 .Remail-offers-label {
+  flex: 1; /* 텍스트가 나머지 공간을 차지하도록 설정 */
   font-size: 0.9rem;
   color: #505050;
   cursor: pointer;
-  line-height: 1.4;
+
 }
+
 
 .Rsignup-text {
   font-size: 0.85rem;
@@ -69,7 +108,7 @@
 
 /* Register Button */
 .Rregister-button {
-  width: 50%;
+  width: 40%;
   padding: 0.8rem;
   background-color: #0056b3;
   color: white;
@@ -87,7 +126,7 @@
 }
 
 .Rlogin-link-text {
-  margin-top: 1rem;
+  margin-top: 0.2rem;
   font-size: 0.9rem;
 }
 
