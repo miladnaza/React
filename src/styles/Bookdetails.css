@@ -523,7 +523,7 @@
 }
 
 #zoom-button img {
-  width: 30px; /* Width of the search icon */
+  width: 38px; /* Width of the search icon */
 
   height: 25px; /* Height of the search icon */
 }
@@ -565,4 +565,11 @@
 
 #book-details-rating .star:hover {
   color: inherit; /* Prevent hover from changing the color */
+}
+
+#closepageto{
+  margin-top: 80px;
+  font-family: Arial, sans-serif;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
 }

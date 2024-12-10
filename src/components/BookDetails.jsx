@@ -1,4 +1,3 @@
-// Import necessary libraries
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import checkedIcon from "./image/checked.png";
@@ -11,22 +10,20 @@ import BookReviews from "./BookReviews";
 import "../styles/Bookdetails.css";
 import RatingsAndReviews from "./RatingsAndReviews";
 
-
-
 const BookDetails = () => {
   const { shortTitle } = useParams();
   const [book, setBook] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [selectedFormat, setSelectedFormat] = useState(null); // Track selected format
-  const [isZoomed, setIsZoomed] = useState(false); // State for zoom functionality
-  const [showModal1, setShowModal1] = useState(false); // Modal for Offer 1
-  const [showModal2, setShowModal2] = useState(false); // Modal for Offer 2
-  const [showModal3, setShowModal3] = useState(false); // Modal for Offer 3
+  const [selectedFormat, setSelectedFormat] = useState(null);
+  const [isZoomed, setIsZoomed] = useState(false);
+  const [showModal1, setShowModal1] = useState(false);
+  const [showModal2, setShowModal2] = useState(false);
+  const [showModal3, setShowModal3] = useState(false);
   const [reviewCount, setReviewCount] = useState(0);
-  const [quantity, setQuantity] = useState(1); // Quantity for adding to cart
-  const [cartPopupVisible, setCartPopupVisible] = useState(false); // Popup for cart success
-  const [loginPopupVisible, setLoginPopupVisible] = useState(false); // Popup for login required
+  const [quantity, setQuantity] = useState(1);
+  const [cartPopupVisible, setCartPopupVisible] = useState(false);
+  const [loginPopupVisible, setLoginPopupVisible] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -84,8 +81,15 @@ const BookDetails = () => {
 
   const handleAddToCart = async () => {
     const userId = sessionStorage.getItem("userId");
+
     if (!userId) {
+      sessionStorage.setItem("redirectAfterLogin", window.location.pathname); // Save current path
       setLoginPopupVisible(true);
+      return;
+    }
+
+    if (!book || !book._id) {
+      alert("Book details are not fully loaded. Please try again.");
       return;
     }
 
@@ -99,17 +103,20 @@ const BookDetails = () => {
       });
 
       if (!response.ok) {
-        throw new Error("Failed to add book to cart");
+        const errorData = await response.json();
+        throw new Error(errorData.message || "Failed to add book to cart");
       }
 
       setCartPopupVisible(true);
     } catch (error) {
-      alert(error.message);
+      console.error("Error adding book to cart:", error.message);
+      alert(`Error: ${error.message}`);
     }
   };
 
   const closeCartPopup = () => {
     setCartPopupVisible(false);
+    window.location.reload();
   };
 
   const closeLoginPopup = () => {
@@ -133,12 +140,12 @@ const BookDetails = () => {
         console.error("Error fetching review count:", error.message);
       }
     };
+
     fetchReviewCount();
   }, [book]);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
-
 
   return (
     <div id="book-details-container">
@@ -309,10 +316,10 @@ const BookDetails = () => {
       {loginPopupVisible && (
         <div className="popup">
           <div className="popup-content">
-            <button className="close-button" onClick={() => setLoginPopupVisible(false)}>
+            <button className="close-button" onClick={() => setLoginPopupVisible(false)} >
               ✖
             </button>
-            <h2>Please log in to add items to your cart</h2>
+            <h2 id = "closepageto" >Please log in to add items to your cart</h2 >
             <button className="popup-signin-button" onClick={closeLoginPopup}>
               Log In
             </button>
