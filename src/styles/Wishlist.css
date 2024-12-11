@@ -1,0 +1,252 @@
+/* General container styling */
+.wl-container {
+    margin: 20px auto;
+    max-width: 800px;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .wl-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .wl-updated {
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    color: rgb(121, 120, 120);
+    font-family: Arial, sans-serif;
+    margin: 11px;
+  }
+  
+  .wl-title {
+    font-size: 2rem;
+    font-weight: 500;
+    font-family: Arial, sans-serif;
+    margin: 0;
+  }
+  
+  .wl-item-count {
+    font-size: 1rem;
+    margin: 10px 0;
+    color: #333;
+    font-weight: 500;
+    font-family: Arial, sans-serif;
+  }
+  
+  .wl-divider {
+    border: 0;
+    border-top: 1px solid #ddd;
+    margin: 10px 0;
+  }
+  
+  .wl-empty-message {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: black;
+  }
+  
+  /* Items */
+  .wl-items {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .wl-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+
+  }
+  
+ 
+  
+  .wl-item-details {
+    flex: 1;
+  }
+  
+  
+  
+  .wl-out-of-stock-label {
+    padding: 10px 20px;
+    background-color: #f44336;
+    color: white;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    text-align: center;
+  }
+  
+  .wl-add-to-cart-button {
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-right: 20px;
+  }
+  
+  .wl-add-to-cart-button:hover {
+    background-color: #444;
+  }
+  
+  .wl-remove-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .wl-delete-icon {
+    width: 20px;
+    height: 20px;
+    
+  }
+  
+  /* Dark overlay background */
+.wl-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    z-index: 999; /* Should be one level below the popup */
+  }
+  
+  /* Popup styling */
+  .wl-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: black;
+    z-index: 1000;
+    font-family: Arial, sans-serif;
+  }
+  
+  .wl-popup-icon {
+    width: 24px;
+    height: 24px;
+  }
+  
+  
+  .wl-popup-icon {
+    width: 24px;
+    height: 24px;
+  }
+  
+
+  .wl-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .wl-pagination-button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: black;
+    margin: 0 10px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .wl-pagination-button:disabled {
+    color: gray;
+    cursor: not-allowed;
+  }
+  
+  .wl-pagination-info {
+    font-size: 1rem;
+    color: black;
+    font-family: Arial, sans-serif;
+  }
+  .wl-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .wl-item-image {
+    width: 100px;
+    height: 140px;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+  
+  .wl-item-details {
+    flex: 1;
+  }
+  
+  .wl-item-details h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 520;
+    color: black;
+  }
+  
+  
+  
+  .wl-item-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Space between price, button, and delete icon */
+  }
+  
+  .wl-item-price {
+    font-weight: 520;
+    color: #333; /* Match the price color to the screenshot */
+    font-size: 1.1rem;
+  }
+  
+  .wl-add-to-cart-button {
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    border: none;
+    width: 130px;
+    height: 37px;
+    margin-right: -15px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+  }
+  
+  .wl-add-to-cart-button:hover {
+    background-color: #444;
+  }
+  
+  .wl-remove-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .wl-delete-icon {
+    width: 20px;
+    height: 20px;
+
+  }

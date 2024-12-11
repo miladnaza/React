@@ -841,7 +841,7 @@ body, html {
   .unique-footer-column a {
     font-size: 12px;
     text-decoration: none;
-    color: black;
+    color: #333;
   }
 
   .unique-footer-column a:hover {
@@ -935,7 +935,7 @@ body, html {
 .unique-subscribe-form button {
   padding: 10px 20px;
   font-size: 1em;
-  background-color: #000;
+  background-color: #333;
   color: #fff;
   border: none;
   cursor: pointer;
@@ -973,10 +973,10 @@ body, html {
   right: 15px;
   background: none;
   border: none;
-  font-size: 24px;
+  font-size: 19px;
   font-weight: bold;
   cursor: pointer;
-  color: #000;
+  color: #333;
 }
 
 .popup-title {
@@ -988,7 +988,7 @@ body, html {
 
 .popup-signin-button,
 .popup-create-account-button {
-  background-color: #000;
+  background-color: #333;
   color: white;
   border: none;
   padding: 12px;
@@ -1000,8 +1000,8 @@ body, html {
 
 .popup-create-account-button {
   background: none;
-  color: black;
-  border: 2px solid black;
+  color: #333;
+  border: 2px solid #333;
 }
 
 .popup-create-account-button:hover,
@@ -1022,7 +1022,7 @@ body, html {
   position: absolute;
   top: -12px; /* Adjust position closer to the cart icon */
   right: -25px; /* Adjust position closer to the cart icon */
-  background-color: black; /* Vibrant color for the badge */
+  background-color: #333; /* Vibrant color for the badge */
   color: white;
   font-size: 10px; /* Smaller font size */
   font-weight: bold;

@@ -6,6 +6,7 @@ import locationIcon from "./image/location.png";
 import wishlistIcon from "./image/wishlist.png";
 import accountIcon from "./image/account.png";
 import cartIcon from "./image/cart2.png";
+import WishlistPage from "../pages/WhishlistPage";
 
 const Header = ({ onSearch }) => {
   const [query, setQuery] = useState("");
@@ -213,7 +214,7 @@ const Header = ({ onSearch }) => {
             </a>
           </div>
           <div className="icon-container">
-            <Link to="/Wishlist" onClick={(e) => handleClick(e, "/Wishlist")}>
+            <Link to="/WishlistPage" onClick={(e) => handleClick(e, "/WishlistPage")}>
               <img
                 id="wishpic"
                 src={wishlistIcon}

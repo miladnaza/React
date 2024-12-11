@@ -569,7 +569,21 @@
 
 #closepageto{
   margin-top: 80px;
+  margin-left: 10px;
   font-family: Arial, sans-serif;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   margin-bottom: 10px;
+}
+#whishlistbutton{
+  border: none;
+  background: none;
+  margin-top: 16px;
+  margin-left: -5px;
+
+}
+
+#whishlistbutton:hover svg {
+  fill: rgb(78, 78, 78); /* Changes fill to black on hover */
+  cursor: pointer; /* Adds a pointer cursor for interactivity */
+  background: none;
 }

@@ -113,7 +113,7 @@
   .review-stars h4 {
     font-family: Arial, sans-serif;
     font-size: 0.9rem;
-    color: #313131;
+    color: #333;
     margin-bottom: 5px;
   }
   
@@ -160,7 +160,7 @@
   #starsik{
     font-family: Arial, sans-serif;
     font-size: 0.9rem;
-    color: #313131;
+    color: #333;
     margin-bottom: 5px;
     line-height: 1.5;
   }

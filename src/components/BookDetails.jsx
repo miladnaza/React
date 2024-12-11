@@ -24,6 +24,11 @@ const BookDetails = () => {
   const [quantity, setQuantity] = useState(1);
   const [cartPopupVisible, setCartPopupVisible] = useState(false);
   const [loginPopupVisible, setLoginPopupVisible] = useState(false);
+  const [hover, setHover] = useState(false);
+  
+  const [wishlistPopupVisible, setWishlistPopupVisible] = useState(false);
+  const [wishlistMessage, setWishlistMessage] = useState("");
+  const [isInWishlist, setIsInWishlist] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -116,13 +121,100 @@ const BookDetails = () => {
 
   const closeCartPopup = () => {
     setCartPopupVisible(false);
-    window.location.reload();
+    //window.location.reload();
   };
 
   const closeLoginPopup = () => {
     setLoginPopupVisible(false);
     navigate("/login");
   };
+  //Check if the book is already in the wishlist
+  useEffect(() => {
+    const checkWishlist = async () => {
+      const userId = sessionStorage.getItem("userId");
+      if (!userId || !book || !book._id) return;
+
+      try {
+        const response = await fetch(
+          `${import.meta.env.VITE_BE_URL}/api/wishlist/${userId}`
+        );
+        if (!response.ok) {
+          throw new Error("Failed to fetch wishlist");
+        }
+
+        const data = await response.json();
+        const isBookInWishlist = data.items.some(
+          (item) => item.bookId === book._id
+        );
+        setIsInWishlist(isBookInWishlist);
+      } catch (error) {
+        console.error("Error fetching wishlist:", error.message);
+      }
+    };
+
+    checkWishlist();
+  }, [book]);
+
+  // Handle adding or removing the book from the wishlist
+  const handleWishlistToggle = async () => {
+    const userId = sessionStorage.getItem("userId");
+
+    if (!userId) {
+      sessionStorage.setItem("redirectAfterLogin", window.location.pathname);
+      setWishlistPopupVisible(true);
+      return;
+    }
+
+    try {
+      const url = isInWishlist
+        ? `${import.meta.env.VITE_BE_URL}/api/wishlist/${userId}/${book._id}`
+        : `${import.meta.env.VITE_BE_URL}/api/wishlist`;
+
+      const method = isInWishlist ? "DELETE" : "POST";
+      const body = isInWishlist ? null : JSON.stringify({ userId, bookId: book._id });
+
+      const response = await fetch(url, {
+        method,
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body,
+      });
+
+      if (!response.ok) {
+        throw new Error(
+          isInWishlist ? "Failed to remove from wishlist" : "Failed to add to wishlist"
+        );
+      }
+
+      setIsInWishlist(!isInWishlist);
+
+      // Show a pop-up message
+      setWishlistMessage(
+        isInWishlist
+          ? "Book removed from wishlist!"
+          : "Book added to wishlist!"
+      );
+      setTimeout(() => setWishlistMessage(""), 10000); // Remove the message after 10 seconds
+    } catch (error) {
+      console.error(
+        isInWishlist
+          ? "Error removing from wishlist:"
+          : "Error adding to wishlist:",
+        error.message
+      );
+    }
+  };
+
+  const closeWishlistPopup = () => {
+    setWishlistPopupVisible(false);
+  };
+
+  const redirectToLogin = () => {
+    // Redirect to login and keep the current page
+    navigate(`/login?redirect=${encodeURIComponent(window.location.pathname)}`);
+  };
+
 
   useEffect(() => {
     const fetchReviewCount = async () => {
@@ -304,8 +396,8 @@ const BookDetails = () => {
       <button className="close-button" onClick={closeCartPopup}>
         ✖
       </button>
-      <h2>Book added to cart successfully!</h2>
-      <button className="view-cart-button" onClick={() => navigate("/Bookslist")}>
+      <h2 id = "closepageto" >Book added to cart successfully!</h2>
+      <button className="popup-signin-button"  onClick={() => navigate("/Bookslist")}>
         View Cart
       </button>
     </div>
@@ -327,21 +419,55 @@ const BookDetails = () => {
         </div>
       )}
     {/* Wishlist Button */}
-    <button className="wishlis-button">
-  <svg
-    className="wishlis-icon"
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24"
-  >
-    <path
-      d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
-      fill="white" /* Default fill color (white) */
-      stroke="black" /* Default border color (black) */
-      stroke-width="2" /* Border thickness */
-    ></path>
-  </svg>
-</button>
+    <button
+      onClick={handleWishlistToggle}
+      id="whishlistbutton"
+      onMouseEnter={() => setHover(true)} // Set hover state to true
+      onMouseLeave={() => setHover(false)} // Set hover state to false
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        style={{
+          width: "26px",
+          height: "26px",
+          fill: hover || isInWishlist ? "black" : "white", // Black on hover or if in wishlist
+          stroke: "black",
+          strokeWidth: "2",
+        }}
+      >
+        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+      </svg>
+    </button>
   </div>
+  {/* Wishlist pop-up */}
+  {wishlistPopupVisible && (
+        <div style={{ position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)", background: "white", padding: "20px", boxShadow: "0px 4px 6px rgba(0,0,0,0.1)" }}>
+          <button
+            style={{
+              position: "absolute",
+              top: "10px",
+              right: "10px",
+              border: "none",
+              background: "none",
+              fontSize: "18px",
+              cursor: "pointer",
+            }}
+            onClick={closeWishlistPopup}
+          >
+            ✖
+          </button>
+          <h2>Please log in to add items to your wishlist</h2>
+          <button onClick={redirectToLogin}>Log In</button>
+        </div>
+      )}
+
+      {/* Wishlist message */}
+      {wishlistMessage && (
+        <div style={{ position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)", background: "lightgreen", padding: "20px", boxShadow: "0px 4px 6px rgba(0,0,0,0.1)" }}>
+          {wishlistMessage}
+        </div>
+      )}
       {/* Zoom Modal */}
       {isZoomed && (
         <div id="zoom-modal" onClick={closeZoom}>
