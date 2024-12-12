@@ -46,7 +46,9 @@ const ShoppingCart = () => {
         `${import.meta.env.VITE_BE_URL}/api/cart/${userId}/${bookId}`,
         {
           method: "DELETE",
+          
         }
+        
       );
 
       if (!response.ok) {
@@ -56,6 +58,7 @@ const ShoppingCart = () => {
       setCartItems((prevItems) =>
         prevItems.filter((item) => item.bookId !== bookId)
       );
+      window.location.reload();
     } catch (error) {
       console.error("Error removing item:", error.message);
     }

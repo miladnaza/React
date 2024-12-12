@@ -89,7 +89,7 @@ const Wishlist = () => {
     } catch (error) {
       console.error("Error adding book to cart:", error.message);
     }
-     window.location.reload();
+    
   };
 
   const startIndex = (currentPage - 1) * itemsPerPage;
