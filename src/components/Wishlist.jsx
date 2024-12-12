@@ -86,10 +86,11 @@ const Wishlist = () => {
       setTimeout(() => {
         setPopupMessage(""); // Clear popup after 2 seconds
       }, 2000);
+      window.location.reload();
     } catch (error) {
       console.error("Error adding book to cart:", error.message);
     }
-    
+     
   };
 
   const startIndex = (currentPage - 1) * itemsPerPage;
