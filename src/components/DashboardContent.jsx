@@ -1,7 +1,14 @@
 import React from "react";
 import Card from "./Card";
+import { useNavigate } from "react-router-dom";
 
-const DashboardContent = () => {
+
+const DashboardContent = ({ userData }) => {
+  const navigate = useNavigate();  // Initialize the navigate hook
+
+  const handleViewArchiveClick = () => {
+    navigate("/WishlistPage");  // Navigate to the WishlistPage when the button is clicked
+  };
   const cardData = [
     {
       title: "Order History",
@@ -24,18 +31,35 @@ const DashboardContent = () => {
     },
     {
       title: "Email Preferences",
-      description:
-        "Email: Yes, send email to NkJ@gmail.com\nMailing Address: Not Specified",
+      description: userData ? (
+        <>
+          <div>Email: {userData.email ? "Yes" : "No"}</div>
+          <div>Send email to: {userData.email || "Not available"}</div>
+          <div>Mailing Address: {userData.mailingAddress || "Not Specified"}</div>
+        </>
+      ) : (
+        "Loading email preferences..."
+      ),
       buttons: [{ text: "Edit" }],
     },
     {
-      title: "Wish List Archive",
+      title: "WishList Archive",
       description: "Refer to your old wish lists.",
-      buttons: [{ text: "View Archive" }],
+      buttons: [{ text: "View Archive", onClick: handleViewArchiveClick }],
     },
     {
       title: "Account Details",
-      description: `Name: Niloofar Koochakian Jazi\nEmail: kouchakian.niloofar@gmail.com\nPassword: ********\nPhone: 437.955.9545\nLanguage: English\nSaved Address: Not Specified`,
+      description: userData ? (
+        <>
+          <div>Name: {userData.name}</div>
+          <div>Email: {userData.email}</div>
+          <div>Phone: {userData.phone || "Not available"}</div>
+          <div>Language: English</div>
+          <div>Saved Address: {userData.address || "Not Specified"}</div>
+        </>
+      ) : (
+        "Loading account details..."
+      ),
       buttons: [{ text: "Edit" }],
     },
   ];

@@ -7,7 +7,11 @@ const Card = ({ title, description, buttons }) => {
       <p>{description}</p>
       <div className="card-buttons">
         {buttons.map((button, index) => (
-          <button key={index} className={`card-btn ${button.type || ""}`}>
+          <button
+          key={index}
+          className={`card-btn ${button.type || ""}`}
+          onClick={button.onClick} // Attach the onClick handler here
+        >
             {button.text}
           </button>
         ))}

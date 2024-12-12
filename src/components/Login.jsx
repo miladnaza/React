@@ -42,6 +42,8 @@ const Login = () => {
       if (data.message === "Login successful!") {
         setErrorMessage("");
 
+        sessionStorage.setItem("token", data.token);
+
         // Save login state and user details in sessionStorage
         sessionStorage.setItem("userLoggedIn", "true");
         sessionStorage.setItem("userId", data.user.id); // Save user ID for cart operations
