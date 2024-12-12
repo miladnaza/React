@@ -1,6 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Navigation = ({ onFilter }) => {
+  const navigate = useNavigate();
+
   const categories = [
     "Adventure", "Biography", "Fantasy", "Fiction", "Fitness", 
     "Investing", "Mystery", "Parenting", "Personal Finance", 
@@ -9,11 +12,21 @@ const Navigation = ({ onFilter }) => {
   ]; // Static categories
 
   const authors = [
-    "J.K. Rowling", "Don Starkell", "Louise Penny", "Freida McFadden", "Robert T. Kiyosaki", 
+    "J.K. Rowling", "James Clear", "Angela Duckworth", "Alex Michaelides", "Adam Grant", 
+    "Tara Westover", "Kimberly S. Engels", "Sharon Kaye", "Kevin Brown", "K. Connors", 
+    "Don Starkell", "Louise Penny", "Freida McFadden", "Robert T. Kiyosaki", 
     "Morgan Housel", "Brianna Wiest", "Kobe Bryant", "George S. Clason", "Michael Matthews"
-  ]; // Static list of authors
+  ]; // Static authors
 
   const ratings = [1, 2, 3, 4, 4.5, 5]; // Static rating options
+
+  const handleFilterClick = (filterValue, filterType) => {
+    if (onFilter) {
+      onFilter(filterValue, filterType); // Trigger the existing filter logic
+    } else {
+      navigate("/", { state: { filterValue, filterType } }); // Navigate to main page with filter data
+    }
+  };
 
   return (
     <nav id="N">
@@ -24,7 +37,7 @@ const Navigation = ({ onFilter }) => {
           <div className="category-dropdown">
             <span
               className="category-item"
-              onClick={() => onFilter("All", "category")}
+              onClick={() => handleFilterClick("All", "category")}
             >
               All
             </span>
@@ -32,7 +45,7 @@ const Navigation = ({ onFilter }) => {
               <span
                 key={index}
                 className="category-item"
-                onClick={() => onFilter(category, "category")}
+                onClick={() => handleFilterClick(category, "category")}
               >
                 {category}
               </span>
@@ -46,7 +59,7 @@ const Navigation = ({ onFilter }) => {
           <div className="category-dropdown">
             <span
               className="category-item"
-              onClick={() => onFilter("All", "author")}
+              onClick={() => handleFilterClick("All", "author")}
             >
               All Authors
             </span>
@@ -54,7 +67,7 @@ const Navigation = ({ onFilter }) => {
               <span
                 key={index}
                 className="category-item"
-                onClick={() => onFilter(author, "author")}
+                onClick={() => handleFilterClick(author, "author")}
               >
                 {author}
               </span>
@@ -70,7 +83,7 @@ const Navigation = ({ onFilter }) => {
               <span
                 key={index}
                 className="category-item"
-                onClick={() => onFilter(rating, "rating")}
+                onClick={() => handleFilterClick(rating, "rating")}
               >
                 {rating} stars or higher
               </span>

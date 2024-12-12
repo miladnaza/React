@@ -47,7 +47,7 @@ const WishlistPage = () => {
       {/* Recommendations */}
       {firstBook && (
         <Recommendations
-          category={firstBook.category || "All"}
+          category={'All' || "All"}
           currentBookShortTitle={firstBook.shortTitle || ""}
         />
       )}

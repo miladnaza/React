@@ -63,9 +63,9 @@
 }
 
 .Rregister-input:focus {
-  border-color: #28a745; /* Green border on focus */
+  border-color: #686868;; /* Green border on focus */
   outline: none; /* Remove default outline */
-  box-shadow: 0 0 5px rgba(40, 167, 69, 0.5); /* Green glow on focus */
+  box-shadow: 0 0 5px rgba(129, 129, 129, 0.5)
 }
 
 .Remail-offers-container {
@@ -110,7 +110,7 @@
 .Rregister-button {
   width: 40%;
   padding: 0.8rem;
-  background-color: #0056b3;
+  background-color: #333;
   color: white;
   border: none;
   border-radius: 5px;
@@ -122,7 +122,7 @@
 }
 
 .Rregister-button:hover {
-  background-color: #0056b3;
+  background-color:  #8f8f8f;
 }
 
 .Rlogin-link-text {

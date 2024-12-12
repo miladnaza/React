@@ -63,7 +63,7 @@
 .recommend-book-title {
   font-size: 14px;
   font-weight: bold;
-  color: #000;
+  color: #333;
   line-height: 1.4;
   margin-bottom: 5px;
   text-overflow: ellipsis; /* Truncate long text with ellipsis */
@@ -129,7 +129,7 @@
   .scroll-button::after {
     content: '>'; /* Default arrow for the right button */
     font-size: 20px;
-    color: #000;
+    color: #333;
     position: absolute;
   }
   

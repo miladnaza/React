@@ -29,7 +29,7 @@ const Footer = () => {
             </a>
           </li>
           <li>
-            <a href="location.html">Find a Store</a>
+            <a  href="/LocationFinder/location.html">Find a Store</a>
           </li>
           <li>
             <a href="/try">About Us</a>

@@ -243,7 +243,7 @@ const Header = ({ onSearch }) => {
 
         {/* Login Popup */}
         {showLoginPopup && (
-          <div className="popup">
+          <div className="popup" id="hhshshhsh">
             <div className="popup-content">
               <button
                 className="close-button"

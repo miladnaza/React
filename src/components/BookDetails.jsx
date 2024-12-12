@@ -10,6 +10,8 @@ import BookReviews from "./BookReviews";
 import "../styles/Bookdetails.css";
 import RatingsAndReviews from "./RatingsAndReviews";
 
+import cartIcon from "./image/wishlist.png"; // Import cart icon
+
 const BookDetails = () => {
   const { shortTitle } = useParams();
   const [book, setBook] = useState(null);
@@ -121,7 +123,7 @@ const BookDetails = () => {
 
   const closeCartPopup = () => {
     setCartPopupVisible(false);
-    //window.location.reload();
+    window.location.reload();
   };
 
   const closeLoginPopup = () => {
@@ -195,7 +197,7 @@ const BookDetails = () => {
           ? "Book removed from wishlist!"
           : "Book added to wishlist!"
       );
-      setTimeout(() => setWishlistMessage(""), 10000); // Remove the message after 10 seconds
+      setTimeout(() => setWishlistMessage(""), 2000); // Remove the message after 10 seconds
     } catch (error) {
       console.error(
         isInWishlist
@@ -332,7 +334,8 @@ const BookDetails = () => {
                   className="format-button"
                   onClick={() => setSelectedFormat("eBook")}
                 >
-                  <strong>eBook</strong> ${book.price - 2}
+                 <strong>eBook</strong> ${ (book.price - 2).toFixed(2) }
+
                 </button>
               )}
             </div>
@@ -393,7 +396,7 @@ const BookDetails = () => {
     {cartPopupVisible && (
   <div className="popup">
     <div className="popup-content">
-      <button className="close-button" onClick={closeCartPopup}>
+      <button  className="close-button" onClick={closeCartPopup}>
         ✖
       </button>
       <h2 id = "closepageto" >Book added to cart successfully!</h2>
@@ -411,15 +414,15 @@ const BookDetails = () => {
             <button className="close-button" onClick={() => setLoginPopupVisible(false)} >
               ✖
             </button>
-            <h2 id = "closepageto" >Please log in to add items to your cart</h2 >
+            <h2 id = "closepageto" >Please Sign in to add items to your cart</h2 >
             <button className="popup-signin-button" onClick={closeLoginPopup}>
-              Log In
+              Sign In
             </button>
           </div>
         </div>
       )}
     {/* Wishlist Button */}
-    <button
+    <button 
       onClick={handleWishlistToggle}
       id="whishlistbutton"
       onMouseEnter={() => setHover(true)} // Set hover state to true
@@ -442,29 +445,24 @@ const BookDetails = () => {
   </div>
   {/* Wishlist pop-up */}
   {wishlistPopupVisible && (
-        <div style={{ position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)", background: "white", padding: "20px", boxShadow: "0px 4px 6px rgba(0,0,0,0.1)" }}>
+         <div className="popup">
+          <div className="popup-content">
           <button
-            style={{
-              position: "absolute",
-              top: "10px",
-              right: "10px",
-              border: "none",
-              background: "none",
-              fontSize: "18px",
-              cursor: "pointer",
-            }}
+            className="close-button"
             onClick={closeWishlistPopup}
           >
             ✖
           </button>
-          <h2>Please log in to add items to your wishlist</h2>
-          <button onClick={redirectToLogin}>Log In</button>
+          <h2 id = "closepageto">Please Sign in to add items to your wishlist</h2>
+          <button  className="popup-signin-button"  onClick={redirectToLogin}>Sign In</button>
+        </div>
         </div>
       )}
 
       {/* Wishlist message */}
       {wishlistMessage && (
-        <div style={{ position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)", background: "lightgreen", padding: "20px", boxShadow: "0px 4px 6px rgba(0,0,0,0.1)" }}>
+        <div id="wishlistpops">
+          <img src={cartIcon} alt="Cart Icon" className="wl-popup-icon" />
           {wishlistMessage}
         </div>
       )}

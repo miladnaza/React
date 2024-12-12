@@ -132,7 +132,7 @@ const Register = () => {
       <p className="Rsignup-text">
         Already have an account?{" "}
         <a href="/login" className="Rsignup-link">
-          Log in here
+          Sign in here
         </a>
       </p>
     </div>

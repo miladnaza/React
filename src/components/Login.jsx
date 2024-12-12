@@ -95,7 +95,7 @@ const Login = () => {
           onClick={handleLogin}
           disabled={!email || !password || loading}
         >
-          {loading ? "Logging in..." : "Log in"}
+          {loading ? "Signing in..." : "Sign in"}
         </button>
       </form>
       <p className="Lsignup-text">

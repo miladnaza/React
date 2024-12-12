@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"; // Import Link for navigation
 
 const BookContainer = ({ books, loading, error }) => {
   const [currentPage, setCurrentPage] = useState(1); // Track current page
-  const booksPerPage = 35; // Number of books per page
+  const booksPerPage = 28; // Number of books per page
 
   // Calculate the total number of pages
   const totalPages = Math.ceil(books.length / booksPerPage);
@@ -48,27 +48,28 @@ const BookContainer = ({ books, loading, error }) => {
             </Link>
           ))}
       </div>
-      {/* Pagination Controls */}
       {totalPages > 1 && ( // Only show pagination if more than one page
-        <>
-          <div className="pagination-controls">
-            {[...Array(totalPages).keys()].map((page) => (
-              <button
-                key={page}
-                className={`pagination-button ${
-                  currentPage === page + 1 ? "active" : ""
-                }`}
-                onClick={() => handlePageClick(page + 1)}
-              >
-                {page + 1}
-              </button>
-            ))}
-          </div>
-          <div className="pagination-page-info">
-            Page {currentPage} of {totalPages}
-          </div>
-        </>
-      )}
+  <div className="pagination-container">
+    <button
+      className="pagination-nav"
+      disabled={currentPage === 1}
+      onClick={() => handlePageClick(currentPage - 1)}
+    >
+      &lt;
+    </button>
+    <span className="pagination-page-info">
+      Page {currentPage} of {totalPages}
+    </span>
+    <button
+      className="pagination-nav"
+      disabled={currentPage === totalPages}
+      onClick={() => handlePageClick(currentPage + 1)}
+    >
+      &gt;
+    </button>
+  </div>
+)}
+
     </main>
   );
 };

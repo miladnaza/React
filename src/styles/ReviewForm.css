@@ -196,4 +196,33 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
   
- 
+  radio-group:active{
+    border-color: white;
+  }
+  .radio-group-container {
+    font-family: Arial, sans-serif;
+    margin: 10px 0;
+  }
+  
+  .radio-group-label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  
+  .radio-group label {
+    margin-right: 15px;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .radio-group input[type="radio"] {
+    margin-right: 5px;
+    outline: none; /* Removes the blue focus border */
+  }
+  
+  .radio-group input[type="radio"]:focus {
+    outline: none; /* Ensure no focus outline appears */
+    box-shadow: none; /* Removes any box shadow */
+  }
+  

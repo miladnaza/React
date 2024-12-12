@@ -29,6 +29,7 @@
   .wl-item-count {
     font-size: 1rem;
     margin: 10px 0;
+    font-family: Arial, sans-serif;
     color: #333;
     font-weight: 500;
     font-family: Arial, sans-serif;
@@ -45,7 +46,8 @@
     margin-top: 20px;
     font-size: 1.2rem;
     font-weight: 500;
-    color: black;
+    color: #333;
+    font-family: Arial, sans-serif;
   }
   
   /* Items */
@@ -83,7 +85,8 @@
   
   .wl-add-to-cart-button {
     padding: 10px 20px;
-    background-color: black;
+    font-family: Arial, sans-serif;
+    background-color: #333;
     color: white;
     border: none;
     border-radius: 5px;
@@ -125,6 +128,7 @@
     position: fixed;
     top: 50%;
     left: 50%;
+    font-family: Arial, sans-serif;
     transform: translate(-50%, -50%);
     background-color: white;
     padding: 20px 30px;
@@ -135,7 +139,7 @@
     gap: 10px;
     font-size: 1rem;
     font-weight: bold;
-    color: black;
+    color: #333;
     z-index: 1000;
     font-family: Arial, sans-serif;
   }
@@ -165,7 +169,7 @@
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
-    color: black;
+    color: #333;
     margin: 0 10px;
     font-family: Arial, sans-serif;
   }
@@ -177,7 +181,8 @@
   
   .wl-pagination-info {
     font-size: 1rem;
-    color: black;
+    color: #333;
+  
     font-family: Arial, sans-serif;
   }
   .wl-item {
@@ -205,7 +210,8 @@
     margin: 0;
     font-size: 1.1rem;
     font-weight: 520;
-    color: black;
+    font-family: Arial, sans-serif;
+    color: #333;
   }
   
   
@@ -220,11 +226,13 @@
     font-weight: 520;
     color: #333; /* Match the price color to the screenshot */
     font-size: 1.1rem;
+    font-family: Arial, sans-serif;
   }
   
   .wl-add-to-cart-button {
     padding: 10px 20px;
-    background-color: black;
+    background-color: #333;
+    font-family: Arial, sans-serif;
     color: white;
     border: none;
     width: 130px;

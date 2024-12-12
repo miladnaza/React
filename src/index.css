@@ -230,7 +230,7 @@ body, html {
   position: absolute; /* Allow dynamic placement */
   top: 100%; /* Position directly below the icon */
   left: 50%; /* Center tooltip horizontally */
- border: 0.5px solid black;
+ border: 0.5px solid #333;
   transform: translateX(0%); /* Adjust for centering */
   background-color: #fdfbfb; /* Dark background for the tooltip */
   color: #070707; /* White text for contrast */
@@ -282,10 +282,11 @@ body, html {
   gap: 23px; /* Add space between the filters */
   width: 100%; /* Ensure filters span the nav width */
   text-align: left; /* Center-align the text */
-  color: black;
+  color: #333;
    /* Default color */
   font-size: 14px;
   font-weight: 700; /* Slightly bold */
+  font-family: Arial, sans-serif; 
 }
 
 .filter-option {
@@ -397,7 +398,7 @@ body, html {
 .book-title {
   font-size: 14px; /* Smaller font for the title */
   font-weight: bold; /* Bold for emphasis */
-  color: #000; /* Black text */
+  color: #333; /* Black text */
   line-height: 1.4; /* Add spacing between lines */
   margin-bottom: 5px; /* Space below the title */
   text-overflow: ellipsis; /* Truncate long text with ellipsis */
@@ -472,7 +473,7 @@ body, html {
   display: block;
   padding: 8px;
   cursor: pointer;
-  color: black; /* Set text color to black */
+  color: #333; /* Set text color to black */
   font-size: 13px; /* Font size for items */
   font-family: Arial, sans-serif;
   font-weight: bold;
@@ -511,7 +512,7 @@ body, html {
 }
 
 .pagination-button.active {
-  background-color: black;
+  background-color: #333;
   color: white;
 }
 
@@ -693,7 +694,7 @@ body, html {
   text-decoration: none;
   font-size: 1em;
   font-weight: 500;
-  color: #000;
+  color: #333;
   transition: color 0.3s ease;
 }
 
@@ -737,13 +738,13 @@ body, html {
 }
 
 .unique-subscribe-form input:focus {
-  border-color: #000;
+  border-color: #333;
 }
 
 .unique-subscribe-form button {
   padding: 10px 20px;
   font-size: 1em;
-  background-color: #000;
+  background-color: #333;
   color: #fff;
   border: none;
   cursor: pointer;
@@ -790,7 +791,7 @@ body, html {
 }
 
 .unique-footer-bottom a:hover {
-  color: #000;
+  color: #333;
 }
 
 .unique-footer-bottom {
@@ -809,7 +810,7 @@ body, html {
 }
 
 .unique-footer-bottom a:hover {
-  color: #000;
+  color: #333;
 }
 
 @media (max-width: 768px) {
@@ -912,7 +913,7 @@ body, html {
   }
 
   .unique-footer-bottom a:hover {
-    color: #000;
+    color: #333;
   }
 }
 .unique-subscribe-form {
@@ -992,7 +993,7 @@ body, html {
   color: white;
   border: none;
   padding: 12px;
-  margin-bottom: px;
+  margin-bottom: 5px;
   cursor: pointer;
   font-size: 16px;
   border-radius: 4px;
@@ -1035,4 +1036,45 @@ body, html {
   z-index: 10;
   min-width: 15px; /* Smaller circle for single-digit numbers */
   height: 15px; /* Keeps the badge circular */
+}
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0px;
+  font-family: Arial, sans-serif;
+}
+
+.pagination-nav {
+  font-size: 18px;
+  font-weight: 500;
+  color: black;
+  background-color: white;
+  border: 1px solid white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pagination-nav:hover:not([disabled]) {
+  background-color: rgb(187, 184, 184);
+  color: rgb(27, 27, 27);
+}
+
+.pagination-nav[disabled] {
+  color: #757373;
+  background-color: white;
+  border-color: white;
+  cursor: not-allowed;
+}
+
+.pagination-page-info {
+  font-size: 14px;
+  font-weight: 500;
+  color: gray;
+  
+}
+#hhshshhsh{
+  
 }

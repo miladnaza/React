@@ -14,8 +14,9 @@ const Recommendations = ({ category, currentBookShortTitle }) => {
   useEffect(() => {
     const fetchRecommendations = async () => {
       try {
+        
         const response = await fetch(
-          `${import.meta.env.VITE_BE_URL}/api/books/category/${encodeURIComponent(`All`)}`
+          `${import.meta.env.VITE_BE_URL}/api/books/category/${encodeURIComponent(category)}`
         );
         if (!response.ok) {
           throw new Error("Failed to fetch recommendations");
@@ -70,7 +71,9 @@ const Recommendations = ({ category, currentBookShortTitle }) => {
 
   return (
     <div className="recommend-container">
-      <h2 className="recommend-title">You May Also Like in {category}</h2>
+     <h2 className="recommend-title">
+  You May Also Like in {category === "All" ? "Newlisting" : category}
+</h2>
       <div className="recommend-scroll-wrapper">
         {canScrollLeft && (
           <button className="scroll-button left" onClick={() => scroll("left")}>

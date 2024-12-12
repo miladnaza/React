@@ -32,6 +32,7 @@ const MainPage = () => {
       setLoading(false); // Set loading to false
     }
   };
+  
 
   // Handle filter changes from Navigation component
   const handleFilter = async (filterValue, filterType) => {
