@@ -6,7 +6,7 @@ import locationIcon from "./image/location.png";
 import wishlistIcon from "./image/wishlist.png";
 import accountIcon from "./image/account.png";
 import cartIcon from "./image/cart2.png";
-import WishlistPage from "../pages/WhishlistPage";
+
 
 const Header = ({ onSearch }) => {
   const [query, setQuery] = useState("");

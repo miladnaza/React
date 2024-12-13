@@ -6,6 +6,8 @@ import pinterestLogo from "./image/pinterest.png"; // Pinterest logo
 import twitterLogo from "./image/twitter.png"; // Twitter logo
 import youtubeLogo from "./image/youtube.png"; // YouTube logo
 import tiktokLogo from "./image/tik-tok.png"; // TikTok logo
+import { Link } from "react-router-dom";
+
 
 const Footer = () => {
   const [email, setEmail] = useState("");
@@ -32,7 +34,7 @@ const Footer = () => {
             <a  href="/LocationFinder/location.html">Find a Store</a>
           </li>
           <li>
-            <a href="/try">About Us</a>
+          <Link to="/Try">About Us</Link> {/* Updated Link */}
           </li>
           <li>
             <a href="https://wa.me/12896007457" target="_blank" rel="noopener noreferrer">

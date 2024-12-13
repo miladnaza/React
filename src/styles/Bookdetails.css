@@ -400,7 +400,7 @@
 }
 .format-buttons-row {
   display: flex; /* Arrange buttons in a row */
-  gap: 0px; /* Space between buttons */
+  gap: 5px; /* Space between buttons */
   font-weight: 100px;
   width: 110px;
   

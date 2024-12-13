@@ -73,7 +73,7 @@ const BookDetails = () => {
     const stars = [];
     const fullStars = Math.floor(rating);
     const halfStar = rating % 1 >= 0.5;
-
+// this one is for showing the rating
     for (let i = 0; i < 5; i++) {
       if (i < fullStars) {
         stars.push(<span key={i} className="star filled">★</span>);
@@ -85,7 +85,7 @@ const BookDetails = () => {
     }
     return stars;
   };
-
+// 
   const handleAddToCart = async () => {
     const userId = sessionStorage.getItem("userId");
 

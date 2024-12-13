@@ -7,6 +7,8 @@ import Bookslist from "./components/Bookslist";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import WishlistPage from "./pages/WhishlistPage";
+import Try from "./pages/Try";
+
 const App = () => {
   return (
     <Router>
@@ -23,6 +25,7 @@ const App = () => {
         {/* Book Details Route */}
         <Route path="/book-details/:shortTitle" element={<Details />} />
         <Route path="/WishlistPage" element={<WishlistPage />} />
+        <Route path="/Try" element={<Try/>}/>
         {/* Books List Route */}
         <Route path="/Bookslist" element={<Bookslist />} />
       </Routes>
