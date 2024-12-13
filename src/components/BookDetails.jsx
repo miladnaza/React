@@ -123,7 +123,7 @@ const BookDetails = () => {
 
   const closeCartPopup = () => {
     setCartPopupVisible(false);
-    window.location.reload();
+  
   };
 
   const closeLoginPopup = () => {
