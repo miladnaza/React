@@ -1,9 +1,10 @@
+
 import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
 import Navigation from "../components/Navigation";
 import BookContainer from "../components/BookContainer";
 import Footer from "../components/Footer";
-
+// this is my main page that home it has header footer and everything 
 const MainPage = () => {
   const [books, setBooks] = useState([]); // All books fetched from API
   const [filteredBooks, setFilteredBooks] = useState([]); // Books after filtering

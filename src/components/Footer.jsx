@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import instagramLogo from "./image/instagram.png"; // Instagram logo
 import facebookLogo from "./image/facebook.png"; // Facebook logo
 import pinterestLogo from "./image/pinterest.png"; // Pinterest logo
@@ -8,7 +7,7 @@ import youtubeLogo from "./image/youtube.png"; // YouTube logo
 import tiktokLogo from "./image/tik-tok.png"; // TikTok logo
 import { Link } from "react-router-dom";
 
-
+// this componeted i useed for my different project
 const Footer = () => {
   const [email, setEmail] = useState("");
 

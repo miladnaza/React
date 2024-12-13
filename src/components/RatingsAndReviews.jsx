@@ -1,7 +1,8 @@
+
 import React, { useEffect, useState } from "react";
 import ReviewForm from "./ReviewForm";
 import "../styles/RatingsAndReviews.css";
-
+// this is my difficult componete because this one killed me that was diffult 
 const RatingsAndReviews = ({ book }) => {
   const [ratingSnapshot, setRatingSnapshot] = useState({});
   const [bookRating, setBookRating] = useState(book.ratings || 0);

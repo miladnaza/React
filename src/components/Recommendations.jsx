@@ -1,7 +1,8 @@
+
 import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom"; // Import Link for navigation
 import "../styles/Recommendations.css";
-
+// this is the components that recommends book for user
 const Recommendations = ({ category, currentBookShortTitle }) => {
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(true);

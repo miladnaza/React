@@ -60,3 +60,12 @@ This repository contains the React-based frontend for the Book E-commerce Websit
   - Utsav Ketanbhai Mistry
   - Yeoul Kang
 
+
+this is my home page 
+![alt text](image.png)
+the cart page 
+![alt text](image-1.png)
+this is my wishlist
+![alt text](image-2.png)
+the location page 
+![alt text](image-3.png)

@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import trashIcon from "./image/trash.png"; // Trash icon for removing items
 import "../styles/Shoppingcart.css";
@@ -12,7 +13,7 @@ const ShoppingCart = () => {
   const [showPromo, setShowPromo] = useState(false); // State to toggle promo code visibility
 
   const userId = sessionStorage.getItem("userId");
-
+// this is the shopping cart page we can remove book from it and see the price and promo code
   useEffect(() => {
     const fetchCart = async () => {
       if (!userId) {
@@ -39,7 +40,7 @@ const ShoppingCart = () => {
 
     fetchCart();
   }, [userId]);
-
+// for removing book we use 
   const handleRemoveFromCart = async (bookId) => {
     try {
       const response = await fetch(
@@ -63,7 +64,7 @@ const ShoppingCart = () => {
       console.error("Error removing item:", error.message);
     }
   };
-
+// this one handles the quantity of book
   const handleUpdateQuantity = async (bookId, quantity) => {
     if (quantity < 1) return; // Prevent reducing below 1
 
@@ -107,7 +108,7 @@ const ShoppingCart = () => {
   const togglePromo = () => {
     setShowPromo(!showPromo); // Toggle the promo code box visibility
   };
-
+// this one haddles the check out 
   const handleCheckout = async () => {
     // Remove all items from the cart
     try {
