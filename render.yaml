@@ -1,4 +1,4 @@
 static:
   rewrites:
-    - source: /.*   # Match all routes
-      destination: /index.html  # Redirect to index.html for React Router to handle
+    - source: /.*        # Match all routes
+      destination: /index.html  # Redirect to index.html
