@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import "../styles/Wishlist.css";
 
@@ -6,7 +5,7 @@ import "../styles/Wishlist.css";
 import cartIcon from "./image/cart2.png"; // Import cart icon
 import trashIcon from "./image/trash.png"; // Import trash icon for delete
 
-// this is the wishlist that we add in the wish list the book with one click 
+
 const Wishlist = () => {
   const [wishlist, setWishlist] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -41,7 +40,6 @@ const Wishlist = () => {
     fetchWishlist();
   }, []);
 
-  // this one is used to remove book from whishlist
   const handleRemoveFromWishlist = async (bookId) => {
     const userId = sessionStorage.getItem("userId");
     if (!userId) {
@@ -63,7 +61,7 @@ const Wishlist = () => {
       console.error("Error removing book from wishlist:", error.message);
     }
   };
-// we add the book in the wish list from there
+
   const handleAddToCart = async (bookId, bookTitle) => {
     const userId = sessionStorage.getItem("userId");
     if (!userId) {
@@ -88,7 +86,7 @@ const Wishlist = () => {
       setTimeout(() => {
         setPopupMessage(""); // Clear popup after 2 seconds
       }, 2000);
-      
+      window.location.reload();
     } catch (error) {
       console.error("Error adding book to cart:", error.message);
     }
@@ -98,7 +96,7 @@ const Wishlist = () => {
   const startIndex = (currentPage - 1) * itemsPerPage;
   const displayedItems = wishlist.slice(startIndex, startIndex + itemsPerPage);
   const totalPages = Math.ceil(wishlist.length / itemsPerPage);
-// this one hadels if there are many books that goes to different pages 
+
   const handlePageChange = (direction) => {
     if (direction === "next" && currentPage < totalPages) {
       setCurrentPage((prevPage) => prevPage + 1);

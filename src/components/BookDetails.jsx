@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import checkedIcon from "./image/checked.png";
@@ -10,7 +9,7 @@ import Recommendations from "./Recommendations";
 import BookReviews from "./BookReviews";
 import "../styles/Bookdetails.css";
 import RatingsAndReviews from "./RatingsAndReviews";
-// this the book setails that shows 
+
 import cartIcon from "./image/wishlist.png"; // Import cart icon
 
 const BookDetails = () => {
@@ -124,7 +123,7 @@ const BookDetails = () => {
 
   const closeCartPopup = () => {
     setCartPopupVisible(false);
-  
+    window.location.reload();
   };
 
   const closeLoginPopup = () => {
